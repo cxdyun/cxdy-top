@@ -1,76 +1,354 @@
 <!doctype html>
 <html lang="zh-CN">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="cxdy.top — 一个正在生长的个人站点。">
-    <meta name="theme-color" content="#181815">
-    <title>cxdy.top — In Progress</title>
-    <style>
-      :root { color-scheme: dark; --ink: #181815; --paper: #f5f2ea; --muted: #a7a398; --line: rgba(245, 242, 234, .14); --accent: #d79a67; --ease-out: cubic-bezier(.16, 1, .3, 1); font-family: "SF Pro Display", "Helvetica Neue", "PingFang SC", sans-serif; }
-      * { box-sizing: border-box; }
-      html { background: var(--ink); }
-      body { min-width: 320px; min-height: 100dvh; margin: 0; overflow-x: hidden; background: linear-gradient(115deg, rgba(215, 154, 103, .08), transparent 34%), var(--ink); color: var(--paper); }
-      a { color: inherit; }
-      .page { position: relative; width: min(1400px, calc(100% - 64px)); min-height: 100dvh; margin: 0 auto; display: grid; grid-template-rows: auto minmax(0, 1fr); }
-      .page::before { position: absolute; inset: 0 auto 0 47%; width: 1px; background: var(--line); content: ""; pointer-events: none; }
-      .nav { display: flex; align-items: center; justify-content: space-between; padding: 28px 0; border-bottom: 1px solid var(--line); font-size: .72rem; letter-spacing: .13em; text-transform: uppercase; }
-      .brand { font-weight: 600; text-decoration: none; }
-      .nav-actions { display: inline-flex; align-items: center; gap: clamp(16px, 2.5vw, 38px); }
-      .nav-status { display: inline-flex; align-items: center; gap: 9px; color: var(--muted); }
-      .pulse { position: relative; width: 7px; height: 7px; border-radius: 50%; background: var(--accent); }
-      .pulse::after { position: absolute; inset: -4px; border: 1px solid var(--accent); border-radius: inherit; content: ""; animation: pulse 2.8s var(--ease-out) infinite; }
-      .nav-link { display: inline-flex; align-items: center; gap: 7px; color: var(--paper); font-weight: 600; text-decoration: none; transition: color 220ms ease, transform 220ms var(--ease-out); }
-      .nav-link svg { width: 15px; height: 15px; fill: currentColor; }
-      .nav-link:hover { color: var(--accent); transform: translateY(-1px); }
-      .nav-link:active { transform: scale(.98); }
-      .nav-link:focus-visible { outline: 2px solid var(--accent); outline-offset: 5px; }
-      .hero { display: grid; grid-template-columns: minmax(0, 1.08fr) minmax(310px, .92fr); align-items: center; gap: clamp(52px, 9vw, 150px); padding: clamp(72px, 12vw, 166px) 0 clamp(60px, 9vw, 120px); }
-      .eyebrow { margin: 0 0 24px; color: var(--accent); font-family: "SF Mono", "Cascadia Mono", monospace; font-size: .72rem; letter-spacing: .12em; text-transform: uppercase; }
-      h1 { position: relative; z-index: 1; max-width: 720px; margin: 0; font-size: clamp(3.55rem, 8.2vw, 8.4rem); font-weight: 500; letter-spacing: -.075em; line-height: 1.03; }
-      h1 span { display: block; padding-left: 0; color: var(--muted); }
-      .signal { position: relative; min-height: min(39vw, 520px); overflow: hidden; border: 1px solid var(--line); background: rgba(245, 242, 234, .025); isolation: isolate; }
-      .signal::before { position: absolute; inset: 0; z-index: -1; background-image: linear-gradient(var(--line) 1px, transparent 1px), linear-gradient(90deg, var(--line) 1px, transparent 1px); background-size: 48px 48px; content: ""; mask-image: linear-gradient(to bottom, var(--ink), transparent 88%); }
-      .signal-label, .signal-index { position: absolute; z-index: 2; color: var(--muted); font-family: "SF Mono", "Cascadia Mono", monospace; font-size: .65rem; letter-spacing: .1em; text-transform: uppercase; }
-      .signal-label { top: 22px; left: 22px; }
-      .signal-index { right: 22px; bottom: 22px; }
-      .orbit { position: absolute; top: 50%; left: 50%; border: 1px solid rgba(245, 242, 234, .26); border-radius: 50%; transform: translate(-50%, -50%); }
-      .orbit-one { width: 54%; aspect-ratio: 1; animation: drift-one 12s ease-in-out infinite; }
-      .orbit-two { width: 75%; aspect-ratio: 1; border-color: rgba(215, 154, 103, .65); animation: drift-two 15s ease-in-out infinite; }
-      .orbit-three { width: 114%; aspect-ratio: 1; animation: drift-three 18s ease-in-out infinite; }
-      .radar-sweep { position: absolute; z-index: 1; top: 50%; left: 50%; width: 75%; aspect-ratio: 1; border-radius: 50%; background: conic-gradient(from -35deg, rgba(215, 154, 103, .28), rgba(215, 154, 103, .08) 15deg, rgba(215, 154, 103, 0) 70deg); mask-image: radial-gradient(circle, transparent 0 4%, var(--ink) 4.5% 100%); transform: translate(-50%, -50%) rotate(-90deg); transform-origin: center; animation: radar-sweep 6.5s linear infinite; }
-      .needle { position: absolute; z-index: 2; top: 50%; left: 50%; width: 1px; height: 37.5%; transform: translate(-50%, -100%) rotate(-90deg); transform-origin: bottom; background: linear-gradient(to top, var(--accent), transparent); animation: radar-sweep 6.5s linear infinite; }
-      .core { position: absolute; z-index: 2; top: 50%; left: 50%; width: 12px; aspect-ratio: 1; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 8px rgba(215, 154, 103, .1); transform: translate(-50%, -50%); }
-      @keyframes pulse { 0% { opacity: .75; transform: scale(.35); } 70%, 100% { opacity: 0; transform: scale(1.8); } }
-      @keyframes drift-one { 50% { transform: translate(-50%, -50%) rotate(18deg) scale(1.06); } }
-      @keyframes drift-two { 50% { transform: translate(-50%, -50%) rotate(-22deg) scale(.94); } }
-      @keyframes drift-three { 50% { transform: translate(-50%, -50%) rotate(12deg) scale(1.04); } }
-      @keyframes radar-sweep { to { transform: translate(-50%, -50%) rotate(270deg); } }
-      .needle { animation-name: radar-needle; }
-      @keyframes radar-needle { to { transform: translate(-50%, -100%) rotate(270deg); } }
-      @media (max-width: 760px) { .page { width: min(100% - 40px, 600px); } .page::before { display: none; } .nav { padding: 21px 0; } .nav-actions { gap: 16px; } .hero { grid-template-columns: 1fr; gap: 54px; padding: 78px 0 62px; } h1 span { padding-left: 0; } .signal { min-height: 350px; } }
-      @media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; } }
-    </style>
-  </head>
-  <body>
-    <main class="page">
-      <nav class="nav" aria-label="主导航">
-        <a class="brand" href="/" aria-label="cxdy.top 首页">cxdy.top</a>
-        <div class="nav-actions">
-          <span class="nav-status"><i class="pulse" aria-hidden="true"></i> In progress</span>
-          <a class="nav-link" href="https://github.com/cxdyun" rel="noopener noreferrer" target="_blank"><svg aria-hidden="true" viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82A7.65 7.65 0 0 1 8 4.73c.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>GitHub</a>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="CXDY — AI 驱动的个人主页：机器学习、大模型与全栈开发的创意实践。" />
+  <meta name="theme-color" content="#05060b" />
+  <title>CXDY — 人工智能 · 创意技术</title>
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%236ee7ff'/%3E%3Cstop offset='.5' stop-color='%23a78bfa'/%3E%3Cstop offset='1' stop-color='%23f472b6'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='16' fill='%2305060b'/%3E%3Cpath d='M32 12 L52 44 H42.5 L32 25.6 L21.5 44 H12 Z' fill='url(%23g)'/%3E%3C/svg%3E" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <!-- 自定义光标 -->
+  <div class="cursor-dot" aria-hidden="true"></div>
+  <div class="cursor-ring" aria-hidden="true"></div>
+
+  <!-- 滚动进度条 -->
+  <div class="scroll-progress" aria-hidden="true"></div>
+
+  <!-- 背景层 -->
+  <div class="bg" aria-hidden="true">
+    <div class="bg-grid"></div>
+    <div class="bg-orb orb-a"></div>
+    <div class="bg-orb orb-b"></div>
+    <div class="bg-orb orb-c"></div>
+    <canvas id="particles"></canvas>
+    <div class="bg-noise"></div>
+  </div>
+
+  <!-- 导航 -->
+  <header class="nav" id="nav">
+    <a class="nav-logo" href="#home">
+      <svg class="nav-mark" viewBox="0 0 64 64" aria-hidden="true">
+        <path d="M32 12 L52 44 H42.5 L32 25.6 L21.5 44 H12 Z" fill="currentColor" />
+      </svg>
+      <span>CXDY<span class="nav-logo-dot">.</span>top</span>
+    </a>
+
+    <nav class="nav-links" id="nav-links" aria-label="主导航">
+      <a href="#home" class="active">首页</a>
+      <a href="#about">关于</a>
+      <a href="#skills">能力</a>
+      <a href="#projects">项目</a>
+      <a href="#contact">联系</a>
+    </nav>
+
+    <div class="nav-right">
+      <span class="nav-status"><i class="pulse" aria-hidden="true"></i>ONLINE</span>
+      <a class="btn btn-ghost btn-sm" href="#contact">开始协作</a>
+      <button class="nav-burger" id="burger" aria-label="打开菜单" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero" id="home">
+      <p class="hero-eyebrow reveal">
+        <span class="tag-dot" aria-hidden="true"></span> AI-DRIVEN PERSONAL SPACE · 2026
+      </p>
+
+      <h1 class="hero-title reveal">
+        <span class="line" style="--i:0">你好，我是</span>
+        <span class="glitch" data-text="CXDY">CXDY</span>
+      </h1>
+
+      <div class="hero-type reveal">
+        <span class="type-prefix">&gt;_</span>
+        <span id="typed"></span><span class="caret" aria-hidden="true"></span>
+      </div>
+
+      <p class="hero-sub reveal">
+        在<b>人工智能</b>与<b>创意代码</b>的交汇处探索——<br class="only-mobile" />
+        把想法训练成产品，把未来编译进现实。
+      </p>
+
+      <div class="hero-cta reveal">
+        <a class="btn btn-primary" href="#projects">
+          查看项目
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a class="btn btn-ghost" href="#contact">
+          联系我
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16v12H4zM4 8l8 6 8-6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+
+      <!-- 数据统计 -->
+      <div class="hero-stats reveal">
+        <div class="stat">
+          <div class="stat-num"><span class="count" data-target="5">0</span><em>+</em></div>
+          <div class="stat-label">年技术实践</div>
         </div>
-      </nav>
-      <section class="hero" aria-labelledby="page-title">
-        <div>
-          <p class="eyebrow">Personal index / 2026</p>
-          <h1 id="page-title">在路上，<span>也在构建。</span></h1>
+        <div class="stat">
+          <div class="stat-num"><span class="count" data-target="30">0</span><em>+</em></div>
+          <div class="stat-label">交付项目</div>
         </div>
-        <div class="signal" aria-label="动态雷达扫描">
-          <span class="signal-label">Signal / 01</span><span class="signal-index">CXDY.TOP</span>
-          <i class="orbit orbit-one" aria-hidden="true"></i><i class="orbit orbit-two" aria-hidden="true"></i><i class="orbit orbit-three" aria-hidden="true"></i><i class="radar-sweep" aria-hidden="true"></i><i class="needle" aria-hidden="true"></i><i class="core" aria-hidden="true"></i>
+        <div class="stat">
+          <div class="stat-num"><span class="count" data-target="12">0</span></div>
+          <div class="stat-label">模型 / 应用</div>
         </div>
-      </section>
-    </main>
-  </body>
+        <div class="stat">
+          <div class="stat-num"><span class="count" data-target="2000">0</span><em>+</em></div>
+          <div class="stat-label">代码提交</div>
+        </div>
+      </div>
+
+      <a class="scroll-hint" href="#about" aria-label="向下滚动">
+        <span class="mouse"><span class="wheel"></span></span>
+        <span class="hint-text">SCROLL</span>
+      </a>
+    </section>
+
+    <!-- 跑马灯 -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-track">
+        <span>ARTIFICIAL INTELLIGENCE</span><i>◆</i>
+        <span>MACHINE LEARNING</span><i>◆</i>
+        <span>LARGE LANGUAGE MODELS</span><i>◆</i>
+        <span>FULL-STACK ENGINEERING</span><i>◆</i>
+        <span>CREATIVE CODING</span><i>◆</i>
+        <span>DATA SCIENCE</span><i>◆</i>
+        <span>ARTIFICIAL INTELLIGENCE</span><i>◆</i>
+        <span>MACHINE LEARNING</span><i>◆</i>
+        <span>LARGE LANGUAGE MODELS</span><i>◆</i>
+        <span>FULL-STACK ENGINEERING</span><i>◆</i>
+        <span>CREATIVE CODING</span><i>◆</i>
+        <span>DATA SCIENCE</span><i>◆</i>
+      </div>
+    </div>
+
+    <!-- ABOUT -->
+    <section class="section" id="about">
+      <div class="section-head reveal">
+        <p class="section-index">01</p>
+        <h2 class="section-title">关于我<span class="accent">.</span></h2>
+        <p class="section-desc">一个长期主义者，一名在 0 与 1 之间寻找灵感的开发者。</p>
+      </div>
+
+      <div class="about-grid">
+        <div class="about-copy reveal">
+          <p class="about-lead">我叫 <b>CXDY</b>，一名 AI 应用开发者与全栈工程师。</p>
+          <p>
+            我相信技术的价值在于<b>放大人的创造力</b>。过去几年，我把时间投入在机器学习、
+            大语言模型与产品工程之间——从训练一个小模型，到把模型变成千万人可用的应用。
+          </p>
+          <p>
+            工作之外，我热衷于开源、写技术博客，以及在深夜调试一行只差一个分号的代码。
+          </p>
+
+          <div class="about-meta">
+            <div class="meta-item">
+              <span class="meta-key">专注领域</span>
+              <span class="meta-val">AI / LLM · 全栈 · 交互体验</span>
+            </div>
+            <div class="meta-item">
+              <span class="meta-key">所在地</span>
+              <span class="meta-val">中国 · 互联网</span>
+            </div>
+            <div class="meta-item">
+              <span class="meta-key">当前状态</span>
+              <span class="meta-val"><i class="pulse" aria-hidden="true"></i> 开放合作</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 交互式终端 -->
+        <div class="terminal reveal" aria-label="交互式终端演示">
+          <div class="terminal-bar">
+            <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+            <span class="terminal-title">cxdy@nexus: ~</span>
+          </div>
+          <div class="terminal-body" id="terminal"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section class="section" id="skills">
+      <div class="section-head reveal">
+        <p class="section-index">02</p>
+        <h2 class="section-title">能力矩阵<span class="accent">.</span></h2>
+        <p class="section-desc">从算法到界面，覆盖 AI 产品的一整条链路。</p>
+      </div>
+
+      <div class="skills-grid">
+        <article class="skill-card reveal" style="--d:0">
+          <div class="skill-icon">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a5 5 0 0 1 5 5v1.2A4 4 0 0 1 19 12v3a4 4 0 0 1-2 3.5V20a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2v-1.5A4 4 0 0 1 5 15v-3a4 4 0 0 1 2-3.8V7a5 5 0 0 1 5-5Zm0 2a3 3 0 0 0-3 3v.6A4 4 0 0 1 12 7a4 4 0 0 1 3 .6V7a3 3 0 0 0-3-3Z" fill="currentColor"/></svg>
+          </div>
+          <h3>机器学习 / 深度学习</h3>
+          <p>PyTorch · Transformers · 模型微调与部署，让神经网络真正跑进产品。</p>
+          <div class="skill-bar"><span data-width="90%"></span></div>
+          <span class="skill-pct">90%</span>
+        </article>
+
+        <article class="skill-card reveal" style="--d:1">
+          <div class="skill-icon">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a9 9 0 0 0-9 9v6a3 3 0 0 0 3 3h2v-8H5.2A7 7 0 0 1 12 5a7 7 0 0 1 6.8 8H18v8h-5v2h5a3 3 0 0 0 3-3v-6a9 9 0 0 0-9-9Z" fill="currentColor"/></svg>
+          </div>
+          <h3>大语言模型 (LLM)</h3>
+          <p>RAG · 智能体 · 提示工程 · 模型蒸馏，驾驭大模型解决真实问题。</p>
+          <div class="skill-bar"><span data-width="85%"></span></div>
+          <span class="skill-pct">85%</span>
+        </article>
+
+        <article class="skill-card reveal" style="--d:2">
+          <div class="skill-icon">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 6l-5 6 5 6M16 6l5 6-5 6M13.5 4l-3 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <h3>全栈工程</h3>
+          <p>TypeScript · Python · React / Next.js · Node，前后端一体的产品交付。</p>
+          <div class="skill-bar"><span data-width="88%"></span></div>
+          <span class="skill-pct">88%</span>
+        </article>
+
+        <article class="skill-card reveal" style="--d:3">
+          <div class="skill-icon">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 3h18v18H3zM3 9h18M9 9v12M3 15h6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <h3>数据与基础设施</h3>
+          <p>SQL · 向量数据库 · Docker · K8s · MLOps，为智能系统打牢地基。</p>
+          <div class="skill-bar"><span data-width="78%"></span></div>
+          <span class="skill-pct">78%</span>
+        </article>
+
+        <article class="skill-card reveal" style="--d:4">
+          <div class="skill-icon">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l2.4 7.2H22l-6 4.4 2.3 7.2-6.3-4.4-6.3 4.4L8 13.6l-6-4.4h7.6z" fill="currentColor"/></svg>
+          </div>
+          <h3>创意编程 / 交互</h3>
+          <p>WebGL · Canvas · 动效设计，把冰冷的界面变成有呼吸的体验。</p>
+          <div class="skill-bar"><span data-width="82%"></span></div>
+          <span class="skill-pct">82%</span>
+        </article>
+
+        <article class="skill-card reveal" style="--d:5">
+          <div class="skill-icon">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 9a4 4 0 1 1 8 0 4 4 0 0 1-4 4 4 4 0 0 1-4-4Zm-2 6c-1.5 0-3 .9-3 2.5V20h10v-2.5C13 15.9 11.5 15 10 15H6Zm10-1l1.5-3 1.5 3 3 1.5-3 1.5-1.5 3-1.5-3-3-1.5 3-1.5Z" fill="currentColor"/></svg>
+          </div>
+          <h3>产品思维</h3>
+          <p>从用户痛点到技术方案，让每一行代码都对准真实价值。</p>
+          <div class="skill-bar"><span data-width="80%"></span></div>
+          <span class="skill-pct">80%</span>
+        </article>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section class="section" id="projects">
+      <div class="section-head reveal">
+        <p class="section-index">03</p>
+        <h2 class="section-title">精选项目<span class="accent">.</span></h2>
+        <p class="section-desc">一些让 AI 真正落地的实践。</p>
+      </div>
+
+      <div class="projects-grid">
+        <article class="project-card reveal" data-tilt style="--d:0">
+          <div class="project-visual pv-1">
+            <span class="pv-glow"></span>
+            <span class="pv-badge">LLM · AGENT</span>
+            <div class="pv-orbit"></div>
+            <div class="pv-core"></div>
+          </div>
+          <div class="project-body">
+            <h3>Nebula Chat<span class="project-arrow">↗</span></h3>
+            <p>基于大语言模型的智能对话助手，支持多轮记忆、工具调用与知识库检索增强。</p>
+            <div class="tags"><span>LangChain</span><span>RAG</span><span>Next.js</span></div>
+          </div>
+        </article>
+
+        <article class="project-card reveal" data-tilt style="--d:1">
+          <div class="project-visual pv-2">
+            <span class="pv-glow"></span>
+            <span class="pv-badge">GENERATIVE AI</span>
+            <div class="pv-waves"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+          </div>
+          <div class="project-body">
+            <h3>Vision Studio<span class="project-arrow">↗</span></h3>
+            <p>图像生成与风格迁移工作台，把扩散模型装进浏览器，一键生成视觉资产。</p>
+            <div class="tags"><span>Stable Diffusion</span><span>WebGL</span><span>Python</span></div>
+          </div>
+        </article>
+
+        <article class="project-card reveal" data-tilt style="--d:2">
+          <div class="project-visual pv-3">
+            <span class="pv-glow"></span>
+            <span class="pv-badge">DATA · ML</span>
+            <div class="pv-chart"><i style="--h:30%"></i><i style="--h:55%"></i><i style="--h:42%"></i><i style="--h:80%"></i><i style="--h:65%"></i><i style="--h:95%"></i></div>
+          </div>
+          <div class="project-body">
+            <h3>DataPulse<span class="project-arrow">↗</span></h3>
+            <p>实时数据洞察平台，流式处理 + 预测模型，让决策快人一步。</p>
+            <div class="tags"><span>FastAPI</span><span>ClickHouse</span><span>React</span></div>
+          </div>
+        </article>
+
+        <article class="project-card reveal" data-tilt style="--d:3">
+          <div class="project-visual pv-4">
+            <span class="pv-glow"></span>
+            <span class="pv-badge">PERSONAL AI</span>
+            <div class="pv-neural"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+          </div>
+          <div class="project-body">
+            <h3>Neural Notes<span class="project-arrow">↗</span></h3>
+            <p>本地优先的 AI 知识库，自动整理、向量检索，让灵感永不丢失。</p>
+            <div class="tags"><span>Embeddings</span><span>Rust</span><span>SQLite</span></div>
+          </div>
+        </article>
+      </div>
+
+      <div class="projects-more reveal">
+        <a class="btn btn-ghost" href="https://github.com/cxdyun" target="_blank" rel="noopener noreferrer">
+          在 GitHub 上查看更多
+          <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.03 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>
+        </a>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section contact" id="contact">
+      <div class="contact-inner reveal">
+        <p class="section-index center">04</p>
+        <h2 class="contact-title">一起构建<span class="grad">下一代</span>智能体验</h2>
+        <p class="contact-sub">无论是合作、想法交流，还是仅仅打个招呼，我都欢迎。</p>
+        <div class="contact-actions">
+          <a class="btn btn-primary btn-lg" href="mailto:hi@cxdy.top">
+            发送邮件
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16v12H4zM4 8l8 6 8-6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <a class="btn btn-ghost btn-lg" href="https://github.com/cxdyun" target="_blank" rel="noopener noreferrer">GitHub</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <span class="footer-brand">CXDY<span>.</span>top</span>
+      <span class="footer-note">© 2026 · 用代码与模型，构建未来。</span>
+      <span class="footer-badge">MADE WITH <i class="heart" aria-hidden="true">♥</i> &amp; AI</span>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
 </html>
