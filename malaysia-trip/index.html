@@ -42,7 +42,7 @@
     .stats{display:grid;grid-template-columns:repeat(4,1fr);border-block:1px solid var(--line)}.stat{padding:28px 18px;border-right:1px solid var(--line)}.stat:last-child{border:0}.stat b{display:block;font-size:30px;letter-spacing:-.04em}.stat span{font-size:13px;color:var(--muted)}
     .days{display:grid;gap:18px}.day{display:grid;grid-template-columns:150px 1fr;background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
     .day-label{padding:28px;background:var(--rain);border-right:1px solid var(--line)}.day-label .num{font-size:52px;line-height:1;font-weight:850;letter-spacing:-.06em}.day-label small{display:block;margin-top:12px;color:var(--ink-2)}
-    .schedule{padding:10px 30px}.stop{display:grid;grid-template-columns:80px 1fr;gap:18px;padding:20px 0;border-bottom:1px solid var(--line)}.stop:last-child{border:0}.time{font-weight:850;color:var(--accent)}.stop h3{margin:0 0 5px;font-size:18px}.stop p{margin:0;color:var(--muted);font-size:14px}.tag{display:inline-block;margin-top:8px;padding:4px 9px;border-radius:99px;background:#eef1ec;color:var(--ink-2);font-size:11px;font-weight:750}
+    .schedule{padding:10px 30px}.stop{display:grid;grid-template-columns:80px 1fr;gap:18px;padding:20px 0;border-bottom:1px solid var(--line)}.stop:last-child{border:0}.time{font-weight:850;color:var(--accent)}.stop h3{margin:0 0 5px;font-size:18px}.stop p{margin:0;color:var(--muted);font-size:14px}.tag{display:inline-block;margin-top:8px;padding:4px 9px;border-radius:99px;background:#eef1ec;color:var(--ink-2);font-size:11px;font-weight:750}.map-actions{display:flex;flex-wrap:wrap;gap:7px;margin-top:10px}.map-actions .tag{margin-top:0;border:0;cursor:pointer;font-family:inherit;text-decoration:none}.map-actions button.tag:active{transform:scale(.98)}
     .concert{background:var(--ink);color:white;position:relative;overflow:hidden}.concert:after{content:"HENRY";position:absolute;right:-35px;bottom:-70px;font-size:180px;font-weight:900;letter-spacing:-.08em;color:rgba(255,255,255,.04);pointer-events:none}
     .concert-photo{position:relative;margin:0 0 42px;border-radius:30px;overflow:hidden;background:#d9c8bb;box-shadow:0 24px 70px rgba(0,0,0,.24)}.concert-photo img{display:block;width:100%;height:auto}.concert-photo figcaption{position:absolute;left:0;right:0;bottom:0;height:12.8%;display:flex;align-items:center;padding:0 28px;background:rgba(14,31,26,.34);font-size:14px;font-weight:750;letter-spacing:.08em;color:white}
     .concert-grid{display:grid;grid-template-columns:1fr 1fr;gap:52px;position:relative;z-index:1}.concert h2{color:white}.concert .eyebrow{color:#f0a080}.show-card{border:1px solid rgba(255,255,255,.18);border-radius:28px;padding:28px;background:rgba(255,255,255,.05)}
@@ -99,7 +99,7 @@
             <div class="day-label"><div><div class="num">02</div><small>周五 · 抵达日</small></div><b>轻松入城</b></div>
             <div class="schedule">
               <div class="stop"><div class="time">15:00</div><div><h3>KUL 入境，前往武吉免登</h3><p>两人行李不多：KLIA Ekspres 至 KL Sentral（T1 约 28 分钟），再 Grab 到酒店；若两人总车费与车程可接受，可直接 Grab 门到门。机场铁路单程成人 RM55。</p><span class="tag">预留入境与取行李 90 分钟</span></div></div>
-              <div class="stop"><div class="time">18:00</div><div><h3>亚罗街 Jalan Alor 晚餐</h3><p>第一晚只在酒店周边活动。点沙爹、福建面、肉骨茶或椰浆饭；先问清价格再点海鲜，饮料少冰。</p><a class="tag" href="https://uri.amap.com/search?keyword=Jalan%20Alor%20Kuala%20Lumpur&amp;callnative=0" target="_blank" rel="noopener">高德地图</a></div></div>
+              <div class="stop"><div class="time">18:00</div><div><h3>亚罗街 Jalan Alor 晚餐</h3><p>第一晚只在酒店周边活动。点沙爹、福建面、肉骨茶或椰浆饭；先问清价格再点海鲜，饮料少冰。</p><div class="map-actions"><a class="tag" href="https://maps.apple.com/?q=Jalan%20Alor%2C%20Bukit%20Bintang%2C%20Kuala%20Lumpur" target="_blank" rel="noopener">苹果地图</a><a class="tag" href="https://www.google.com/maps/search/?api=1&amp;query=Jalan%20Alor%2C%20Bukit%20Bintang%2C%20Kuala%20Lumpur" target="_blank" rel="noopener">Google 地图</a><button class="tag" type="button" data-copy-address="Jalan Alor, Bukit Bintang, 50200 Kuala Lumpur, Malaysia">复制地址</button></div></div></div>
               <div class="stop"><div class="time">20:00</div><div><h3>柏威年 — 武吉免登夜景</h3><p>补防晒、雨伞和饮用水；22:00 前回酒店。第一天不塞景点，为第二天演唱会留体力。</p></div></div>
             </div>
           </article>
@@ -108,7 +108,7 @@
             <div class="day-label"><div><div class="num">03</div><small>周六 · 演唱会日</small></div><b>老城与现场</b></div>
             <div class="schedule">
               <div class="stop"><div class="time">08:30</div><div><h3>茨厂街早餐</h3><p>MRT 到 Pasar Seni。可选咖椰吐司、白咖啡、鸡丝河粉；避开需要久排队的网红店。</p></div></div>
-              <div class="stop"><div class="time">10:00</div><div><h3>中央艺术坊 — 独立广场</h3><p>在中央艺术坊买小件伴手礼，再步行看苏丹阿都沙末大厦与独立广场。12:30 前结束户外段，避开午后闷热和雷阵雨。</p><a class="tag" href="https://uri.amap.com/search?keyword=Central%20Market%20Kuala%20Lumpur&amp;callnative=0" target="_blank" rel="noopener">高德地图</a></div></div>
+              <div class="stop"><div class="time">10:00</div><div><h3>中央艺术坊 — 独立广场</h3><p>在中央艺术坊买小件伴手礼，再步行看苏丹阿都沙末大厦与独立广场。12:30 前结束户外段，避开午后闷热和雷阵雨。</p><div class="map-actions"><a class="tag" href="https://maps.apple.com/?q=Central%20Market%20Kuala%20Lumpur" target="_blank" rel="noopener">苹果地图</a><a class="tag" href="https://www.google.com/maps/search/?api=1&amp;query=Central%20Market%20Kuala%20Lumpur" target="_blank" rel="noopener">Google 地图</a><button class="tag" type="button" data-copy-address="Central Market, Jalan Hang Kasturi, City Centre, 50050 Kuala Lumpur, Malaysia">复制地址</button></div></div></div>
               <div class="stop"><div class="time">13:00</div><div><h3>午餐后回酒店休整</h3><p>充满手机与充电宝；换轻便衣物和好走的鞋。票面姓名需与证件一致，演出晚携带原护照并放进贴身防水袋。</p></div></div>
               <div class="stop"><div class="time">16:15</div><div><h3>Grab 前往 3 Damansara</h3><p>目的地填 “IDEA LIVE ARENA / 3 Damansara”。周六傍晚可能堵车，不建议临时研究换乘。17:00 到商场吃简餐、找入口、排队。</p><span class="tag">两人同行 · 上车前核对车牌</span></div></div>
               <div class="stop"><div class="time">19:00</div><div><h3>刘宪华《ENJOY THE SHOW》吉隆坡站</h3><p>地点：IDEA LIVE ARENA，Level 2, 3 Damansara。散场后从商场官方上车点叫 Grab，两人一起回酒店，不单独行动。</p></div></div>
@@ -118,7 +118,7 @@
           <article class="day">
             <div class="day-label"><div><div class="num">04</div><small>周日 · 完整游览日</small></div><b>洞穴与双塔</b></div>
             <div class="schedule">
-              <div class="stop"><div class="time">07:30</div><div><h3>出发去黑风洞 Batu Caves</h3><p>Grab 直达，趁凉快爬 272 级台阶。肩膀与膝盖需遮盖；猴子会抢食物，不要手拿零食。主洞免费，预计 2 小时。</p><a class="tag" href="https://uri.amap.com/search?keyword=Batu%20Caves%20Malaysia&amp;callnative=0" target="_blank" rel="noopener">高德地图</a></div></div>
+              <div class="stop"><div class="time">07:30</div><div><h3>出发去黑风洞 Batu Caves</h3><p>Grab 直达，趁凉快爬 272 级台阶。肩膀与膝盖需遮盖；猴子会抢食物，不要手拿零食。主洞免费，预计 2 小时。</p><div class="map-actions"><a class="tag" href="https://maps.apple.com/?q=Batu%20Caves%2C%20Selangor%2C%20Malaysia" target="_blank" rel="noopener">苹果地图</a><a class="tag" href="https://www.google.com/maps/search/?api=1&amp;query=Batu%20Caves%2C%20Selangor%2C%20Malaysia" target="_blank" rel="noopener">Google 地图</a><button class="tag" type="button" data-copy-address="Batu Caves, Gombak, 68100 Batu Caves, Selangor, Malaysia">复制地址</button></div></div></div>
               <div class="stop"><div class="time">11:30</div><div><h3>回市区午餐与午休</h3><p>回武吉免登吃娘惹菜或香蕉叶饭；13:30–15:00 回酒店洗澡休息，避开最热与雷雨高发时段。</p></div></div>
               <div class="stop"><div class="time">16:00</div><div><h3>双子塔观景台</h3><p>建议提前预约 16:00–17:00 时段，至少提前 15 分钟到入口。2026 年周末非马来西亚成人普通票 RM137，以官网结算为准。</p><a class="tag" href="https://www.petronastwintowers.com.my/plan-your-visit/admission-ticketing/" target="_blank" rel="noopener">官方购票</a></div></div>
               <div class="stop"><div class="time">18:00</div><div><h3>KLCC 公园与夜景</h3><p>地面拍双塔蓝调时刻，雨大就转入 Suria KLCC。晚餐后 21:30 前返回酒店，收拾行李。</p></div></div>
@@ -196,11 +196,14 @@
     </section>
   </main>
 
-  <footer><div class="shell"><div class="footer-row"><strong>吉隆坡四日首游 · 演唱会特别版</strong><span>制作日期 2026.09.19 · 出发前请复核航班、天气与票务通知</span></div><div class="copyright">© 2026 王浩兵. 保留所有权利。</div></div></footer>
+  <footer><div class="shell"><div class="footer-row"><strong>吉隆坡四日首游 · 演唱会特别版</strong><span>制作日期 2026.09.19 · 出发前请复核航班、天气与票务通知</span></div><div class="copyright">© 2026 cuanxiangdeyun. 保留所有权利。</div></div></footer>
   <script>
     const boxes=[...document.querySelectorAll('#checklist input')];
     boxes.forEach(box=>{box.checked=localStorage.getItem('kl-'+box.dataset.key)==='1';box.addEventListener('change',()=>localStorage.setItem('kl-'+box.dataset.key,box.checked?'1':'0'))});
+    const copyButtons=[...document.querySelectorAll('[data-copy-address]')];
+    copyButtons.forEach(button=>button.addEventListener('click',async()=>{const address=button.dataset.copyAddress;try{await navigator.clipboard.writeText(address);button.textContent='已复制';setTimeout(()=>button.textContent='复制地址',1500)}catch{window.prompt('复制以下地址',address)}}));
     console.assert(boxes.length===12,'行前清单应包含 12 项');
+    console.assert(copyButtons.length===3,'地图地址复制按钮应包含 3 项');
   </script>
 </body>
 </html>
