@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#173f35">
+  <meta name="color-scheme" content="light">
+  <title>吉隆坡四日首游｜刘宪华演唱会特别行程</title>
+  <style>
+    :root{color-scheme:only light;
+      --ink:#173f35;--ink-2:#315d51;--cream:#f7f3e8;--paper:#fffdf7;
+      --accent:#d8704a;--line:#d9d5c9;--muted:#6d746f;--rain:#dbe9e3;
+      --shadow:0 18px 50px rgba(23,63,53,.12);--radius:26px
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:var(--cream);color:var(--ink);font-family:"PingFang SC","Microsoft YaHei",system-ui,sans-serif;line-height:1.65}
+    a{color:inherit;text-decoration-thickness:1px;text-underline-offset:4px}
+    button{font:inherit}
+    .shell{width:min(1180px,calc(100% - 32px));margin:auto}
+    .topbar{position:sticky;top:0;z-index:10;border-bottom:1px solid rgba(23,63,53,.12);background:rgba(247,243,232,.92);backdrop-filter:blur(16px)}
+    .topbar .shell{min-height:62px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+    .brand{font-size:13px;letter-spacing:.12em;font-weight:800;text-decoration:none}
+    .nav{display:flex;gap:18px;font-size:13px;white-space:nowrap;overflow:auto}.nav a{text-decoration:none;color:var(--ink-2)}
+    .hero{padding:72px 0 38px;overflow:hidden}
+    .hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:54px;align-items:center}
+    .eyebrow{font-size:12px;letter-spacing:.18em;text-transform:uppercase;font-weight:800;color:var(--accent)}
+    h1{font-size:clamp(42px,7vw,82px);line-height:.98;letter-spacing:-.055em;margin:16px 0 24px;max-width:820px}
+    .lead{font-size:18px;color:var(--ink-2);max-width:620px}
+    .hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+    .btn{border:1px solid var(--ink);padding:12px 18px;border-radius:999px;background:transparent;color:var(--ink);font-weight:700;cursor:pointer;text-decoration:none;transition:.2s ease}
+    .btn.primary{background:var(--ink);color:white}.btn:hover{transform:translateY(-2px)}.btn:active{transform:scale(.98)}
+    .ticket{position:relative;background:var(--ink);color:#fff;border-radius:34px;padding:34px;box-shadow:var(--shadow);transform:rotate(2deg)}
+    .ticket:before,.ticket:after{content:"";position:absolute;left:-13px;width:26px;height:26px;border-radius:50%;background:var(--cream)}
+    .ticket:before{top:32%}.ticket:after{bottom:20%}
+    .ticket-top{display:flex;justify-content:space-between;gap:16px;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#cfe0d9}
+    .route{font-size:38px;font-weight:850;letter-spacing:-.04em;margin:48px 0 8px}.route-line{height:1px;background:rgba(255,255,255,.3);position:relative}.route-line:after{content:"";position:absolute;right:0;top:-4px;width:9px;height:9px;border-radius:50%;background:var(--accent)}
+    .ticket-info{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:34px}.ticket-info span{font-size:11px;color:#bad0c7}.ticket-info strong{display:block;font-size:16px;margin-top:3px}
+    .alert{margin:34px auto 0;padding:18px 22px;border:1px solid #e6bca9;background:#fff5ee;border-radius:18px;color:#74402e;font-size:14px}
+    section{padding:68px 0}.section-head{display:grid;grid-template-columns:.7fr 1.3fr;gap:40px;align-items:end;margin-bottom:34px}
+    h2{font-size:clamp(32px,5vw,56px);line-height:1.04;letter-spacing:-.045em;margin:8px 0}.section-intro{color:var(--muted);max-width:620px;margin:0 0 7px}
+    .stats{display:grid;grid-template-columns:repeat(4,1fr);border-block:1px solid var(--line)}.stat{padding:28px 18px;border-right:1px solid var(--line)}.stat:last-child{border:0}.stat b{display:block;font-size:30px;letter-spacing:-.04em}.stat span{font-size:13px;color:var(--muted)}
+    .days{display:grid;gap:18px}.day{display:grid;grid-template-columns:150px 1fr;background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
+    .day-label{padding:28px;background:var(--rain);border-right:1px solid var(--line)}.day-label .num{font-size:52px;line-height:1;font-weight:850;letter-spacing:-.06em}.day-label small{display:block;margin-top:12px;color:var(--ink-2)}
+    .schedule{padding:10px 30px}.stop{display:grid;grid-template-columns:80px 1fr;gap:18px;padding:20px 0;border-bottom:1px solid var(--line)}.stop:last-child{border:0}.time{font-weight:850;color:var(--accent)}.stop h3{margin:0 0 5px;font-size:18px}.stop p{margin:0;color:var(--muted);font-size:14px}.tag{display:inline-block;margin-top:8px;padding:4px 9px;border-radius:99px;background:#eef1ec;color:var(--ink-2);font-size:11px;font-weight:750}
+    .concert{background:var(--ink);color:white;position:relative;overflow:hidden}.concert:after{content:"HENRY";position:absolute;right:-35px;bottom:-70px;font-size:180px;font-weight:900;letter-spacing:-.08em;color:rgba(255,255,255,.04);pointer-events:none}
+    .concert-photo{position:relative;margin:0 0 42px;border-radius:30px;overflow:hidden;background:#d9c8bb;box-shadow:0 24px 70px rgba(0,0,0,.24)}.concert-photo img{display:block;width:100%;height:auto}.concert-photo figcaption{position:absolute;left:0;right:0;bottom:0;height:12.8%;display:flex;align-items:center;padding:0 28px;background:rgba(14,31,26,.34);font-size:14px;font-weight:750;letter-spacing:.08em;color:white}
+    .concert-grid{display:grid;grid-template-columns:1fr 1fr;gap:52px;position:relative;z-index:1}.concert h2{color:white}.concert .eyebrow{color:#f0a080}.show-card{border:1px solid rgba(255,255,255,.18);border-radius:28px;padding:28px;background:rgba(255,255,255,.05)}
+    .show-time{font-size:58px;line-height:1;font-weight:850;letter-spacing:-.05em;margin:10px 0}.show-card p{color:#c9d9d3}.mini-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:22px}.mini{padding:15px;border-top:1px solid rgba(255,255,255,.2);font-size:13px}.mini b{display:block;color:#f0a080;margin-bottom:3px}
+    .rules{display:grid;gap:12px;align-content:start}.rule{display:grid;grid-template-columns:34px 1fr;gap:12px;align-items:start}.rule i{font-style:normal;border:1px solid #759588;width:28px;height:28px;border-radius:50%;display:grid;place-items:center;font-size:12px}.rule h3{margin:0 0 3px;font-size:16px}.rule p{margin:0;color:#bcd0c8;font-size:14px}
+    .practical-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}.panel{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:28px}.panel h3{margin:0 0 18px;font-size:22px}.panel ul{margin:0;padding-left:20px;color:var(--muted)}.panel li+li{margin-top:10px}
+    .budget-row{display:flex;justify-content:space-between;gap:20px;border-bottom:1px solid var(--line);padding:12px 0;font-size:14px}.budget-row:last-of-type{border:0}.budget-total{margin-top:18px;padding-top:18px;border-top:2px solid var(--ink);display:flex;justify-content:space-between;font-size:22px;font-weight:850}.fine{font-size:12px;color:var(--muted);margin-top:12px}
+    .checklist{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.check{display:flex;align-items:flex-start;gap:10px;padding:14px;border:1px solid var(--line);border-radius:14px;background:var(--paper);cursor:pointer;transition:.18s ease}.check:hover{transform:translateY(-2px)}.check input{margin-top:5px;accent-color:var(--accent)}.check:has(input:checked){opacity:.55;text-decoration:line-through}
+    .source-list{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}.source-list a{display:block;padding:14px;border-top:1px solid var(--line);font-size:13px}
+    details{border-top:1px solid var(--line);padding:16px 0}summary{cursor:pointer;font-weight:750}details p{color:var(--muted);font-size:14px}
+    footer{padding:44px 0 70px;border-top:1px solid var(--line);color:var(--muted);font-size:13px}.footer-row{display:flex;justify-content:space-between;gap:30px}.footer-row strong{color:var(--ink)}.copyright{margin-top:18px;padding-top:18px;border-top:1px solid var(--line)}
+    :focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+    @media(max-width:820px){section{padding:52px 0}.hero{padding-top:40px}.hero-grid,.section-head,.concert-grid,.practical-grid{grid-template-columns:1fr}.hero-grid{gap:30px}.ticket{transform:none}.stats{grid-template-columns:1fr 1fr}.stat:nth-child(2){border-right:0}.day{grid-template-columns:1fr}.day-label{display:flex;align-items:center;justify-content:space-between;border-right:0;border-bottom:1px solid var(--line)}.day-label .num{font-size:40px}.day-label small{margin:0}.checklist{grid-template-columns:1fr 1fr}.source-list{grid-template-columns:1fr}.section-head{gap:8px;margin-bottom:26px}.concert-photo{margin-bottom:30px}}
+    @media(max-width:520px){body{font-size:15px}.shell{width:min(100% - 22px,1180px)}.topbar .shell{min-height:54px}.brand{font-size:11px}.nav{display:flex;gap:14px;max-width:56vw}.nav a{font-size:12px}.hero{padding:30px 0 24px}.eyebrow{font-size:10px}.hero-grid{gap:24px}h1{font-size:39px;margin:12px 0 18px}.lead{font-size:16px}.hero-actions{gap:8px;margin-top:22px}.hero-actions .btn{flex:1;min-width:135px;text-align:center;padding:11px 12px}.ticket{padding:22px;border-radius:24px}.ticket-top{font-size:10px}.route{font-size:29px;margin:30px 0 8px}.ticket-info{grid-template-columns:1fr 1fr;margin-top:25px}.alert{margin-top:22px;padding:15px 16px}section{padding:44px 0}h2{font-size:36px}.stats{grid-template-columns:repeat(2,1fr)}.stat{padding:19px 13px;border-right:1px solid var(--line);border-bottom:1px solid var(--line)}.stat:nth-child(even){border-right:0}.stat:nth-last-child(-n+2){border-bottom:0}.stat b{font-size:21px}.day-label{padding:17px 18px}.day-label .num{font-size:34px}.schedule{padding:4px 18px}.stop{grid-template-columns:1fr;gap:5px;padding:17px 0}.time{font-size:12px;letter-spacing:.07em}.stop h3{font-size:17px}.concert:after{display:none}.concert-photo{margin-inline:-11px;border-radius:0;aspect-ratio:1}.concert-photo img{width:100%;height:100%;object-fit:cover;object-position:75% center}.concert-photo figcaption{height:12.8%;padding:0 20px;font-size:13px}.show-card,.panel{padding:21px;border-radius:22px}.show-time{font-size:46px}.mini-grid{grid-template-columns:1fr}.checklist{grid-template-columns:1fr}.check{padding:13px}.source-list a{padding-inline:4px}.footer-row{display:block}.footer-row span{display:block;margin-top:7px}.copyright{margin-top:14px;padding-top:14px}}
+    @media print{.topbar,.hero-actions{display:none}.hero{padding-top:20px}body{background:white}.ticket{box-shadow:none}.concert{-webkit-print-color-adjust:exact;print-color-adjust:exact}section{padding:28px 0}.day,.panel{break-inside:avoid}}
+    @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="shell">
+      <a class="brand" href="#top">KMG — KUL / 2026</a>
+      <nav class="nav" aria-label="页面导航"><a href="#route">固定行程</a><a href="#concert">演唱会</a><a href="#ready">行前准备</a><a href="#sources">核验来源</a></nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="shell hero-grid">
+        <div>
+          <div class="eyebrow">First time in Malaysia · Two girls trip</div>
+          <h1>四天三晚，去吉隆坡看一场喜欢的演出。</h1>
+          <p class="lead">为两位年轻女性设计的第一次马来西亚之旅。少换酒店、少折返；把城市经典、娘惹与马来风味、演唱会和雨天余量都排进一条顺路动线。</p>
+          <div class="hero-actions"><a class="btn primary" href="#route">查看每日安排</a><button class="btn" type="button" onclick="window.print()">打印 / 存 PDF</button></div>
+        </div>
+        <aside class="ticket" aria-label="行程摘要">
+          <div class="ticket-top"><span>Itinerary 0026</span><span>2 travellers</span></div>
+          <div class="route">昆明 KMG<br>吉隆坡 KUL</div><div class="route-line"></div>
+          <div class="ticket-info"><div><span>出发</span><strong>10 月 2 日</strong></div><div><span>返程</span><strong>10 月 5 日</strong></div><div><span>核心</span><strong>10 月 3 日</strong></div></div>
+        </aside>
+      </div>
+      <div class="shell alert"><strong>航班假设：</strong>你还未提供具体航班。本攻略按 10 月 2 日 15:00 前抵达 KUL、10 月 5 日 15:00 后起飞编排；景点顺序已固定，拿到航班后只需微调首尾两天。</div>
+    </section>
+
+    <div class="shell stats" aria-label="行程数据">
+      <div class="stat"><b>4 天 3 晚</b><span>全程只住一个区域</span></div><div class="stat"><b>1 场演出</b><span>提前 2 小时到场</span></div><div class="stat"><b>2 个核心区</b><span>市中心 + 八打灵再也</span></div><div class="stat"><b>RM 570–690</b><span>每人当地开销估算*</span></div>
+    </div>
+
+    <section id="route">
+      <div class="shell">
+        <div class="section-head"><div><div class="eyebrow">Fixed itinerary</div><h2>固定行程</h2></div><p class="section-intro">住宿锁定武吉免登 Bukit Bintang，步行吃饭、坐 MRT 都方便。全程不安排马六甲或云顶，三晚短途再跨城只会消耗时间。</p></div>
+        <div class="days">
+          <article class="day">
+            <div class="day-label"><div><div class="num">02</div><small>周五 · 抵达日</small></div><b>轻松入城</b></div>
+            <div class="schedule">
+              <div class="stop"><div class="time">15:00</div><div><h3>KUL 入境，前往武吉免登</h3><p>两人行李不多：KLIA Ekspres 至 KL Sentral（T1 约 28 分钟），再 Grab 到酒店；若两人总车费与车程可接受，可直接 Grab 门到门。机场铁路单程成人 RM55。</p><span class="tag">预留入境与取行李 90 分钟</span></div></div>
+              <div class="stop"><div class="time">18:00</div><div><h3>亚罗街 Jalan Alor 晚餐</h3><p>第一晚只在酒店周边活动。点沙爹、福建面、肉骨茶或椰浆饭；先问清价格再点海鲜，饮料少冰。</p><a class="tag" href="https://uri.amap.com/search?keyword=Jalan%20Alor%20Kuala%20Lumpur&amp;callnative=0" target="_blank" rel="noopener">高德地图</a></div></div>
+              <div class="stop"><div class="time">20:00</div><div><h3>柏威年 — 武吉免登夜景</h3><p>补防晒、雨伞和饮用水；22:00 前回酒店。第一天不塞景点，为第二天演唱会留体力。</p></div></div>
+            </div>
+          </article>
+
+          <article class="day">
+            <div class="day-label"><div><div class="num">03</div><small>周六 · 演唱会日</small></div><b>老城与现场</b></div>
+            <div class="schedule">
+              <div class="stop"><div class="time">08:30</div><div><h3>茨厂街早餐</h3><p>MRT 到 Pasar Seni。可选咖椰吐司、白咖啡、鸡丝河粉；避开需要久排队的网红店。</p></div></div>
+              <div class="stop"><div class="time">10:00</div><div><h3>中央艺术坊 — 独立广场</h3><p>在中央艺术坊买小件伴手礼，再步行看苏丹阿都沙末大厦与独立广场。12:30 前结束户外段，避开午后闷热和雷阵雨。</p><a class="tag" href="https://uri.amap.com/search?keyword=Central%20Market%20Kuala%20Lumpur&amp;callnative=0" target="_blank" rel="noopener">高德地图</a></div></div>
+              <div class="stop"><div class="time">13:00</div><div><h3>午餐后回酒店休整</h3><p>充满手机与充电宝；换轻便衣物和好走的鞋。票面姓名需与证件一致，演出晚携带原护照并放进贴身防水袋。</p></div></div>
+              <div class="stop"><div class="time">16:15</div><div><h3>Grab 前往 3 Damansara</h3><p>目的地填 “IDEA LIVE ARENA / 3 Damansara”。周六傍晚可能堵车，不建议临时研究换乘。17:00 到商场吃简餐、找入口、排队。</p><span class="tag">两人同行 · 上车前核对车牌</span></div></div>
+              <div class="stop"><div class="time">19:00</div><div><h3>刘宪华《ENJOY THE SHOW》吉隆坡站</h3><p>地点：IDEA LIVE ARENA，Level 2, 3 Damansara。散场后从商场官方上车点叫 Grab，两人一起回酒店，不单独行动。</p></div></div>
+            </div>
+          </article>
+
+          <article class="day">
+            <div class="day-label"><div><div class="num">04</div><small>周日 · 完整游览日</small></div><b>洞穴与双塔</b></div>
+            <div class="schedule">
+              <div class="stop"><div class="time">07:30</div><div><h3>出发去黑风洞 Batu Caves</h3><p>Grab 直达，趁凉快爬 272 级台阶。肩膀与膝盖需遮盖；猴子会抢食物，不要手拿零食。主洞免费，预计 2 小时。</p><a class="tag" href="https://uri.amap.com/search?keyword=Batu%20Caves%20Malaysia&amp;callnative=0" target="_blank" rel="noopener">高德地图</a></div></div>
+              <div class="stop"><div class="time">11:30</div><div><h3>回市区午餐与午休</h3><p>回武吉免登吃娘惹菜或香蕉叶饭；13:30–15:00 回酒店洗澡休息，避开最热与雷雨高发时段。</p></div></div>
+              <div class="stop"><div class="time">16:00</div><div><h3>双子塔观景台</h3><p>建议提前预约 16:00–17:00 时段，至少提前 15 分钟到入口。2026 年周末非马来西亚成人普通票 RM137，以官网结算为准。</p><a class="tag" href="https://www.petronastwintowers.com.my/plan-your-visit/admission-ticketing/" target="_blank" rel="noopener">官方购票</a></div></div>
+              <div class="stop"><div class="time">18:00</div><div><h3>KLCC 公园与夜景</h3><p>地面拍双塔蓝调时刻，雨大就转入 Suria KLCC。晚餐后 21:30 前返回酒店，收拾行李。</p></div></div>
+            </div>
+          </article>
+
+          <article class="day">
+            <div class="day-label"><div><div class="num">05</div><small>周一 · 返程日</small></div><b>从容离境</b></div>
+            <div class="schedule">
+              <div class="stop"><div class="time">08:30</div><div><h3>酒店附近早餐</h3><p>不再跨区。检查护照、演出票纪念品、充电设备与退税单；液体和充电宝按航司要求分装。</p></div></div>
+              <div class="stop"><div class="time">起飞前 4h</div><div><h3>从酒店前往 KUL</h3><p>Grab 至 KL Sentral 转 KLIA Ekspres，或直接 Grab。国际航班建议至少提前 3 小时到机场；机场铁路末段另留 30 分钟换乘与找站台。</p></div></div>
+              <div class="stop"><div class="time">起飞前 3h</div><div><h3>值机、安检、离境</h3><p>确认 T1 / T2，亚航通常使用 T2，但以机票为准。完成退税或伴手礼补购后登机返昆明。</p></div></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="concert" id="concert">
+      <div class="shell">
+        <figure class="concert-photo"><img src="assets/henry-lau-enjoy-the-show.webp" alt="刘宪华 ENJOY THE SHOW 吉隆坡演唱会宣传照" width="1500" height="600" loading="lazy"><figcaption>这一晚，不赶行程，只负责心动。</figcaption></figure>
+      </div>
+      <div class="shell concert-grid">
+        <div>
+          <div class="eyebrow">Main event</div><h2>演唱会当晚，不留侥幸时间。</h2>
+          <div class="show-card"><span>2026.10.03 · Saturday</span><div class="show-time">19:00</div><p>HENRY LAU 2026 “ENJOY THE SHOW” WORLD TOUR — KUALA LUMPUR</p><div class="mini-grid"><div class="mini"><b>场馆</b>IDEA LIVE ARENA</div><div class="mini"><b>地址</b>3 Damansara, Level 2</div><div class="mini"><b>计划到场</b>17:00</div><div class="mini"><b>返程</b>散场后 Grab</div></div></div>
+        </div>
+        <div class="rules" aria-label="演唱会注意事项">
+          <div class="rule"><i>01</i><div><h3>票与护照姓名完全一致</h3><p>官方票务条款要求购票姓名、身份证或护照号码与有效证件一致，购票后不得更改或转让。</p></div></div>
+          <div class="rule"><i>02</i><div><h3>不要压线入场</h3><p>官方提示 19:00 开演，迟到可能要等到合适间隙才能入场。17:00 到既能吃饭，也能处理找入口或排队问题。</p></div></div>
+          <div class="rule"><i>03</i><div><h3>轻装、封口小包</h3><p>不带食品饮料、尖锐物与易燃物。充电宝、纸巾、薄外套、票和护照足够；具体包袋尺寸以临近演出通知为准。</p></div></div>
+          <div class="rule"><i>04</i><div><h3>散场只走商场明亮区域</h3><p>在官方叫车点等待，核对车牌与司机头像，把行程分享给同行人。遇到取消订单就回商场内重叫。</p></div></div>
+          <a class="btn" style="color:white;border-color:#8ba69b;width:max-content" href="https://www.premiertickets.co/event/henry-lau-2026-enjoy-the-show-world-tour-kuala-lumpur/" target="_blank" rel="noopener">查看演出信息</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="ready">
+      <div class="shell">
+        <div class="section-head"><div><div class="eyebrow">Travel smart</div><h2>出发前一次准备好</h2></div><p class="section-intro">中国普通护照可免签短期入境，但免签不等于什么都不准备。护照、返程票、住宿证明、资金证明与 MDAC 都要能随时出示。</p></div>
+        <div class="practical-grid">
+          <article class="panel"><h3>入境与网络</h3><ul><li>护照入境时有效期至少 6 个月；单次免签停留不超过 30 天。</li><li>在抵达前 3 天内从马来西亚移民局官方入口提交 MDAC，保存截图；不要从广告链接付费代填。</li><li>准备返程机票、完整酒店订单和可用银行卡；两人各自保存一份电子备份。</li><li>落地后开通 eSIM / 本地 SIM；提前安装 Grab、Google Maps 和航司 App。</li></ul><p><a href="https://imigresen-online.imi.gov.my/mdac/main" target="_blank" rel="noopener">MDAC 官方入口</a></p></article>
+          <article class="panel"><h3>10 月天气与穿搭</h3><ul><li>10 月进入季风转换期，雷阵雨更频繁，陆地雷雨多在傍晚；每天带折叠伞和防水手机袋。</li><li>白天轻薄透气，商场和场馆冷气足，包里放一件薄外套。</li><li>黑风洞穿过膝下装、遮肩上衣和防滑鞋；不喂猴、不外露食物。</li><li>演唱会若是站席，穿已经磨合过的运动鞋，不穿新鞋或高跟鞋。</li></ul></article>
+          <article class="panel"><h3>当地预算 · 每人</h3><div class="budget-row"><span>机场铁路往返</span><b>RM100</b></div><div class="budget-row"><span>市内交通 / Grab 分摊</span><b>RM90–130</b></div><div class="budget-row"><span>餐饮</span><b>RM180–260</b></div><div class="budget-row"><span>双子塔周末票</span><b>RM137</b></div><div class="budget-row"><span>零食、饮水与备用</span><b>RM60</b></div><div class="budget-total"><span>合计</span><span>RM567–687</span></div><p class="fine">不含往返机票、酒店、演唱会票与购物。页面顶部为取整速览；Grab 受时段、堵车与叫车点影响。</p></article>
+          <article class="panel"><h3>两人安全约定</h3><ul><li>不分开回酒店；晚间不穿无照明小路，不接受街头陌生人带路或换汇。</li><li>Grab 上车前同时核对车牌、车型和司机；后座乘坐，车内不讨论现金和住址。</li><li>常用卡与备用卡分开放；每人准备 RM150–200 小额现金，护照不放外侧口袋。</li><li>紧急情况拨打马来西亚 999；护照遗失立即报警并联系中国驻马来西亚使馆。</li></ul></article>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="shell">
+        <div class="section-head"><div><div class="eyebrow">Packing list</div><h2>可勾选清单</h2></div><p class="section-intro">勾选状态会保存在当前浏览器。两人分别核对证件，别只让一个人保管全部重要物品。</p></div>
+        <div class="checklist" id="checklist">
+          <label class="check"><input type="checkbox" data-key="passport"><span>护照有效期超过 6 个月</span></label><label class="check"><input type="checkbox" data-key="mdac"><span>MDAC 提交截图</span></label><label class="check"><input type="checkbox" data-key="flight"><span>往返机票与 T1/T2</span></label><label class="check"><input type="checkbox" data-key="hotel"><span>三晚酒店订单</span></label><label class="check"><input type="checkbox" data-key="concert"><span>演唱会票与实名信息</span></label><label class="check"><input type="checkbox" data-key="insurance"><span>境外旅行保险</span></label><label class="check"><input type="checkbox" data-key="network"><span>eSIM / 漫游方案</span></label><label class="check"><input type="checkbox" data-key="money"><span>银行卡与 RM 小额现金</span></label><label class="check"><input type="checkbox" data-key="power"><span>英标转换头与充电宝</span></label><label class="check"><input type="checkbox" data-key="rain"><span>折叠伞与防水袋</span></label><label class="check"><input type="checkbox" data-key="shoes"><span>防滑运动鞋与薄外套</span></label><label class="check"><input type="checkbox" data-key="backup"><span>证件订单云端备份</span></label>
+        </div>
+      </div>
+    </section>
+
+    <section id="sources">
+      <div class="shell">
+        <div class="section-head"><div><div class="eyebrow">Verified · 2026.09.19</div><h2>核验来源</h2></div><p class="section-intro">开放时间、票价和交通可能继续变化。这里优先列官方来源，出发前 7 天再点开复核一次。</p></div>
+        <div class="source-list">
+          <a href="https://www.kln.gov.my/web/chn_beijing/requirement_foreigner" target="_blank" rel="noopener"><b>马来西亚驻华使馆</b><br>中马互免签、护照与入境材料要求</a>
+          <a href="https://www.premiertickets.co/event/henry-lau-2026-enjoy-the-show-world-tour-kuala-lumpur/" target="_blank" rel="noopener"><b>Premier Tickets</b><br>演出日期、时间、地址与主办方</a>
+          <a href="https://my.bigtix.io/en/events/henry-lau-2026-enjoy-the-show-world-tour-kuala-lumpur/BMSHENRY" target="_blank" rel="noopener"><b>BookMyShow / BigTix</b><br>入场时间与违禁物品条款</a>
+          <a href="https://3damansara.com.my/mall-info/" target="_blank" rel="noopener"><b>3 Damansara</b><br>场馆所在商场地址与到达信息</a>
+          <a href="https://www.kliaekspres.com/products-fares/klia-ekspres/" target="_blank" rel="noopener"><b>KLIA Ekspres</b><br>2026 车程、班次与 RM55 单程票价</a>
+          <a href="https://www.petronastwintowers.com.my/plan-your-visit/admission-ticketing/" target="_blank" rel="noopener"><b>PETRONAS Twin Towers</b><br>2026 开放日、预约与周末票价</a>
+          <a href="https://www.met.gov.my/en/pendidikan/fenomena-cuaca/" target="_blank" rel="noopener"><b>马来西亚气象局</b><br>10–11 月季风转换期雷雨特征</a>
+          <a href="https://www.malaysia.travel/explore/4-top-cultural-destinations-in-selangor" target="_blank" rel="noopener"><b>Malaysia Truly Asia</b><br>黑风洞开放时间与门票信息</a>
+        </div>
+        <details><summary>为什么不安排马六甲、云顶或跳岛？</summary><p>这次只有两个完整白天，其中 10 月 3 日必须围绕演唱会。跨城会把有效游览时间换成交通时间，也放大堵车和雷雨导致的误场风险。第一次去先把吉隆坡走顺，下一次再单独安排马六甲或海岛更舒服。</p></details>
+        <details><summary>如果 10 月 2 日晚到、10 月 5 日早飞怎么办？</summary><p>直接删除对应首日晚餐或返程日早餐，不移动 10 月 3–4 日主线。若 10 月 3 日上午才到，取消老城段，入境后先去酒店放行李并休息，15:45 前出发去场馆。</p></details>
+      </div>
+    </section>
+  </main>
+
+  <footer><div class="shell"><div class="footer-row"><strong>吉隆坡四日首游 · 演唱会特别版</strong><span>制作日期 2026.09.19 · 出发前请复核航班、天气与票务通知</span></div><div class="copyright">© 2026 王浩兵. 保留所有权利。</div></div></footer>
+  <script>
+    const boxes=[...document.querySelectorAll('#checklist input')];
+    boxes.forEach(box=>{box.checked=localStorage.getItem('kl-'+box.dataset.key)==='1';box.addEventListener('change',()=>localStorage.setItem('kl-'+box.dataset.key,box.checked?'1':'0'))});
+    console.assert(boxes.length===12,'行前清单应包含 12 项');
+  </script>
+</body>
+</html>
