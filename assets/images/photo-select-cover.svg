@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="630" height="410" viewBox="0 0 630 410">
+  <defs>
+    <linearGradient id="sky" x2="0" y2="1"><stop stop-color="#d4d8ce"/><stop offset="1" stop-color="#eee9da"/></linearGradient>
+    <linearGradient id="sea" x2="0" y2="1"><stop stop-color="#8b9a94"/><stop offset="1" stop-color="#627a73"/></linearGradient>
+    <linearGradient id="dune" x2=".9" y2="1"><stop stop-color="#c5aa84"/><stop offset="1" stop-color="#9f886b"/></linearGradient>
+    <clipPath id="window"><rect x="35" y="40" width="560" height="328" rx="9"/></clipPath>
+    <symbol id="landscape" viewBox="0 0 360 200">
+      <path fill="url(#sky)" d="M0 0h360v200H0z"/>
+      <circle cx="276" cy="53" r="25" fill="#f4efdc" opacity=".9"/>
+      <path fill="#abb3a6" d="M0 87c47 2 75-21 114-16s54 22 103 19 81-25 143-11v121H0Z"/>
+      <path fill="url(#sea)" d="M0 105c60-7 89 10 152 2s148-13 208-4v97H0Z"/>
+      <path fill="#d6c29d" d="M0 134c33-29 54-12 88 1 27 10 47 15 94 0 46-15 92-11 132 16l46 49H0Z"/>
+      <path fill="url(#dune)" d="M0 150c39-38 82-14 115 11 29 21 49 24 81 23 42-1 59-15 92-11s52 19 72 27H0Z"/>
+      <path fill="none" stroke="#ebe3cc" stroke-width="1" opacity=".45" d="M198 111h106m-73 6h103m-163 8h67M22 160c39-21 70 5 102 27"/>
+      <path fill="#6d7662" d="m53 137-4-22 6 5 5-20 8 21 10-3-6 25Zm-5 22-7-16 8 1 6-19 6 23 8-4-4 20Z"/>
+      <path fill="none" stroke="#727663" stroke-width="2" d="m60 124-4 38"/>
+    </symbol>
+    <symbol id="star" viewBox="0 0 15 15"><path d="m7.5 1 2 4.2 4.6.6-3.3 3.3.8 4.6-4.1-2.2-4.1 2.2.8-4.6L.9 5.8l4.6-.6Z"/></symbol>
+  </defs>
+  <g clip-path="url(#window)" font-family="-apple-system, 'PingFang SC', sans-serif">
+    <rect x="35" y="40" width="560" height="328" fill="#f8f7f4"/>
+    <rect x="35" y="70" width="102" height="298" fill="#eeeee8"/>
+    <path d="M35 70h560M137 70v298" stroke="#dedfd5"/>
+    <rect x="48" y="51" width="11" height="9" rx="2" fill="none" stroke="#62695c"/>
+    <circle cx="53.5" cy="55.5" r="2.2" fill="none" stroke="#62695c" stroke-width=".8"/>
+    <path d="m50 51 1-2h5l1 2" fill="none" stroke="#62695c" stroke-width=".8"/>
+    <text x="66" y="59" font-size="9" font-weight="600" fill="#42493b">照片快选</text>
+    <rect x="151" y="48" width="66" height="16" rx="3" fill="#eeeee8" stroke="#dcded3" stroke-width=".7"/>
+    <rect x="153" y="50" width="31" height="12" rx="2" fill="#fdfcf8"/>
+    <text x="160" y="59" font-size="6.5" fill="#5f6656">单图</text><text x="192" y="59" font-size="6.5" fill="#8c917f">网格</text>
+    <rect x="442" y="49" width="70" height="14" rx="3" fill="#eeeee8"/><text x="450" y="58.5" font-size="6" fill="#9a9f8b">搜索照片名</text>
+    <rect x="523" y="48" width="59" height="16" rx="3" fill="#373e31"/><text x="532" y="59" font-size="7" fill="#f5f6ef">打开文件夹</text>
+    <text x="49" y="90" font-size="7" fill="#999e8a">照片库</text>
+    <text x="49" y="108" font-size="8" fill="#56604c">我的照片</text><text x="49" y="121" font-size="6" fill="#9da28f">JPG + RAW</text>
+    <text x="49" y="147" font-size="7" fill="#999e8a">筛选</text>
+    <rect x="43" y="157" width="86" height="21" rx="3" fill="#e0e3d6"/>
+    <path d="M43 162v11" stroke="#7a8566"/>
+    <text x="55" y="170" font-size="7.5" fill="#56604c">全部照片</text><text x="112" y="170" font-size="7" fill="#818b72">24</text>
+    <text x="55" y="194" font-size="7" fill="#858f77">已标星</text><text x="117" y="194" font-size="7" fill="#919a84">8</text>
+    <text x="55" y="217" font-size="7" fill="#858f77">未标星</text><text x="112" y="217" font-size="7" fill="#919a84">16</text>
+    <text x="55" y="240" font-size="7" fill="#858f77">待删除</text><text x="117" y="240" font-size="7" fill="#919a84">0</text>
+    <path d="M49 260h74" stroke="#d7dccd"/>
+    <text x="49" y="281" font-size="6.5" fill="#a1a993">本次照片库</text><text x="49" y="299" font-size="6.5" fill="#929c83">JPG + RAW 配对</text><text x="113" y="299" font-size="6.5" fill="#7c886a">24</text>
+    <rect x="137" y="70" width="458" height="220" fill="#2c312b"/>
+    <text x="150" y="84" font-size="6.5" fill="#d0d6c5">海岸 · 01</text><text x="567" y="84" font-size="6" fill="#a0aa8c">1 / 24</text>
+    <use href="#landscape" x="195" y="91" width="342" height="190"/>
+    <path d="m151 277-3 3 3 3m20-6 3 3-3 3" stroke="#a3ad93" stroke-width=".8" fill="none"/>
+    <rect x="137" y="290" width="458" height="23" fill="#f8f7f2"/>
+    <text x="150" y="305" font-size="6.5" fill="#909a7f">标星</text>
+    <g fill="#a47a51"><use href="#star" x="175" y="297" width="9" height="9"/><use href="#star" x="191" y="297" width="9" height="9"/><use href="#star" x="207" y="297" width="9" height="9"/></g>
+    <g fill="none" stroke="#a9af9d" stroke-width=".8"><use href="#star" x="223" y="297" width="9" height="9"/><use href="#star" x="239" y="297" width="9" height="9"/></g>
+    <text x="265" y="305" font-size="6" fill="#9ba48b">3 星</text><text x="515" y="305" font-size="6.5" fill="#9ba48b">标记待删除</text>
+    <path d="M137 313h458" stroke="#e0e4d6"/>
+    <g transform="translate(149 322)"><rect x="-2" y="-2" width="66" height="37" rx="2" fill="none" stroke="#aa8054"/><use href="#landscape" width="62" height="34"/></g>
+    <use href="#landscape" x="223" y="322" width="62" height="34"/>
+    <use href="#landscape" x="297" y="322" width="62" height="34"/>
+    <use href="#landscape" x="371" y="322" width="62" height="34"/>
+    <use href="#landscape" x="445" y="322" width="62" height="34"/>
+    <use href="#landscape" x="519" y="322" width="62" height="34"/>
+  </g>
+  <rect x="35.5" y="40.5" width="559" height="327" rx="9" fill="none" stroke="#cdd3c0"/>
+</svg>
