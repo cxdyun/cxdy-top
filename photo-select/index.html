@@ -5,7 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#f7f6f2">
   <meta name="description" content="下载照片快选 macOS 应用。快速预览 JPG、同步整理 RAW，将星级写入原文件与 Finder 彩色标签。照片保留在本机。">
-  <title>照片快选 · CXDY</title>
+  <meta property="og:title" content="照片快选 · 专注于选片的 Mac 小工具">
+  <meta property="og:description" content="大图预览、左右对比、网格浏览。JPG 与 RAW 一起整理，照片始终留在本机。">
+  <meta property="og:image" content="https://cxdy.top/assets/images/photo-select-single.webp">
+  <meta property="og:url" content="https://cxdy.top/photo-select/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="爨乡的云">
+  <title>照片快选 · 爨乡的云</title>
   <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="/assets/site.css">
 </head>
@@ -13,36 +19,55 @@
   <a class="skip-link" href="#main">跳到主要内容</a>
   <div class="site-shell">
     <header class="site-header">
-      <a class="brand" href="/" aria-label="CXDY 首页"><span class="wordmark">cxdy<span>.</span></span><span class="brand-caption">个人工具集</span></a>
+      <a class="brand" href="/" aria-label="爨乡的云首页"><span class="wordmark">cxdy<span>.</span></span><span class="brand-caption">个人工具集</span></a>
       <nav aria-label="主导航"><a class="nav-link" href="/">返回工具集<span class="icon arrow-top-right" aria-hidden="true"></span></a></nav>
     </header>
     <main class="tool-page" id="main">
       <div class="tool-breadcrumb"><a href="/">工具集</a><span aria-hidden="true">/</span><span>照片快选</span></div>
-      <section class="tool-hero" aria-labelledby="tool-title">
+      <section class="tool-hero release-hero" aria-labelledby="tool-title">
         <div class="tool-copy">
           <p class="eyebrow"><span class="accent-line" aria-hidden="true"></span>影像工具 · macOS</p>
           <h1 id="tool-title">照片快选<span class="tool-title-dot">.</span></h1>
-          <p class="tool-lead">留住喜欢的，<br>整理剩下的。</p>
-          <p class="tool-description">用 JPG 快速看图，让 RAW 跟着一起整理。<br>星级写进原文件，颜色同步到 Finder。</p>
-          <a class="primary-link" href="https://github.com/cxdyun/cxdy-top/releases/download/photo-select-v1.1.0/PhotoSelect-1.1.0-arm64.dmg">下载 macOS 版<span class="icon arrow-top-right" aria-hidden="true"></span><span class="sr-only">（DMG 安装包，Apple Silicon）</span></a>
-          <p class="runtime-note">v1.1.0 测试版 · 72.5 MB · 尚未完成 Apple 公证<br>Apple Silicon（M1 及更新芯片）· macOS 14 及以上<br>无需额外安装运行环境，照片始终留在本机。</p>
+          <p class="tool-lead">看清每一张，留下喜欢的。</p>
+          <p class="tool-description">JPG 快速预览，RAW 成组整理。<br>星级写入原文件，颜色同步 Finder，照片始终留在本机。</p>
         </div>
-        <div class="tool-art" aria-hidden="true"><div class="art-grid"></div><img src="/assets/images/photo-select-cover.svg" alt="" width="630" height="410" decoding="async"><span class="art-caption">快速浏览，让选片更专注。</span></div>
+        <div class="release-download">
+          <a class="primary-link" href="https://github.com/cxdyun/cxdy-top/releases/download/photo-select-v1.2.3/PhotoSelect-1.2.3-arm64.dmg">下载 macOS 版<span class="icon arrow-top-right" aria-hidden="true"></span><span class="sr-only">（DMG 安装包，Apple Silicon）</span></a>
+          <p class="runtime-note">v1.2.3 测试版 · 70.3 MB<br>Apple Silicon · macOS 14 及以上<br>尚未完成 Apple 公证 · <a href="#guide-title">安装说明</a></p>
+        </div>
       </section>
+      <figure class="product-shot hero-shot">
+        <a class="screenshot-link" href="/assets/images/photo-select-single.webp" target="_blank" rel="noopener" aria-label="查看单图选片原尺寸截图（在新标签页打开）"><img src="/assets/images/photo-select-single.webp" width="1373" height="867" fetchpriority="high" decoding="async" alt="照片快选真实界面：中央大图预览山湖照片，底部胶片条定位当前照片，左侧筛选，工具栏支持五级标星与待删除标记。"></a>
+        <figcaption><span><b>01 / 单图选片</b> 大图看细节，胶片条看前后。</span><span class="shot-shortcut"><kbd>←</kbd><kbd>→</kbd> 切图 <kbd>0–5</kbd> 标星 <kbd>X</kbd> 待删除</span></figcaption>
+      </figure>
       <section class="tool-features" aria-label="主要功能">
         <div><span class="feature-index">01</span><h2>JPG 与 RAW，一起整理</h2><p>同名文件自动关联。看图用 JPG，移入废纸篓时整组处理，也可以恢复。</p></div>
-        <div><span class="feature-index">02</span><h2>喜欢的照片，留下标记</h2><p>支持 1–5 星，保存原文件与 XMP，并同步 Finder 系统彩色标签。</p></div>
-        <div><span class="feature-index">03</span><h2>手指留在键盘上</h2><p>方向键切图，数字键标星，X 标记待删除。单图与网格随时切换。</p></div>
+        <div><span class="feature-index">02</span><h2>标记，跟着照片走</h2><p>1–5 星保存到原文件与 XMP。可同步 Finder 颜色标签，开关与自动跳片偏好都会记住。</p></div>
+        <div><span class="feature-index">03</span><h2>手指留在键盘上</h2><p>方向键切图，数字键标星，X 标记待删除。空格查看 100% 细节，C 开启左右对比。</p></div>
+      </section>
+      <section class="screen-gallery" aria-labelledby="screens-title">
+        <div class="gallery-heading"><div><p class="eyebrow">实际使用</p><h2 id="screens-title">并排比较，一屏浏览。</h2></div><p>从细节到整组，找到适合此刻的看图方式。</p></div>
+        <div class="screen-pair">
+          <figure class="product-shot">
+            <a class="screenshot-link" href="/assets/images/photo-select-compare.webp" target="_blank" rel="noopener" aria-label="查看左右对比原尺寸截图（在新标签页打开）"><img src="/assets/images/photo-select-compare.webp" width="1373" height="867" loading="lazy" decoding="async" alt="左右对比真实界面：左侧显示上一张山湖照片，右侧显示当前照片，下方保留标星工具和胶片条。"></a>
+            <figcaption><b>02 / 左右对比</b><p>按 <kbd>C</kbd>，上一张在左，当前照片在右。比较构图与表情，标星始终作用于当前照片。</p></figcaption>
+          </figure>
+          <figure class="product-shot">
+            <a class="screenshot-link" href="/assets/images/photo-select-grid.webp" target="_blank" rel="noopener" aria-label="查看网格浏览原尺寸截图（在新标签页打开）"><img src="/assets/images/photo-select-grid.webp" width="1373" height="867" loading="lazy" decoding="async" alt="网格浏览真实界面：八张测试风景照片按网格排列，铜色边框标示当前选择，顶部滑杆调整缩略图大小。"></a>
+            <figcaption><b>03 / 网格浏览</b><p>拖动滑杆调整缩略图大小，方向键就近选片。选中后按空格，直接进入单图预览。</p></figcaption>
+          </figure>
+        </div>
+        <p class="screenshot-note">以上均为应用实际截图，使用公开风景素材演示。点击图片可查看原尺寸。<a href="/photo-select/素材说明.md">素材来源与许可<span class="sr-only">（Markdown 文档）</span></a></p>
       </section>
       <section class="start-guide" aria-labelledby="guide-title">
         <div><p class="eyebrow">开始使用</p><h2 id="guide-title">装好，就能选片。</h2></div>
         <div class="guide-content">
           <ol><li><span>下载并打开 DMG，将「照片快选」拖入 Applications。</span></li><li><span>从应用程序目录打开「照片快选」。</span></li><li><span>选择照片文件夹，开始浏览、标星与整理。</span></li></ol>
-          <details><summary>首次打开与版本说明<span class="details-plus" aria-hidden="true"></span></summary><p>当前为 Apple Silicon 测试版，尚未完成 Apple Developer ID 签名与公证。如果系统阻止首次启动，请确认文件来自本站，再参考 <a href="https://support.apple.com/zh-cn/102445" target="_blank" rel="noopener noreferrer">Apple 官方说明</a>，在系统提供的“隐私与安全性 → 仍要打开”入口自行确认。Intel Mac 暂不支持。</p><p>最低系统目标为 macOS 14，已在当前 Apple Silicon Mac 上完成验证，尚未覆盖所有系统版本。星级写入 JPG、RAW 与 XMP；像素蛋糕对外部星级的识别仍需实际导入确认。</p><p>后台随应用启动和退出，关闭窗口时会等待已提交的文件操作完成。旧网页版本的删除记录独立保留，需要在旧版本恢复。<a href="https://github.com/cxdyun/cxdy-top/releases/tag/photo-select-v1.1.0">查看发行说明</a> · <a href="https://github.com/cxdyun/cxdy-top/releases/download/photo-select-v1.1.0/PhotoSelect-1.1.0-arm64.dmg.sha256">下载 SHA-256 校验文件</a></p></details>
+          <details><summary>首次打开与版本说明<span class="details-plus" aria-hidden="true"></span></summary><p>当前为 Apple Silicon 测试版，尚未完成 Apple Developer ID 签名与公证。如果系统阻止首次启动，请确认文件来自本站，再参考 <a href="https://support.apple.com/zh-cn/102445" target="_blank" rel="noopener noreferrer">Apple 官方说明</a>，在系统提供的“隐私与安全性 → 仍要打开”入口自行确认。Intel Mac 暂不支持。</p><p>最低系统目标为 macOS 14，已在当前 Apple Silicon Mac 上完成验证，尚未覆盖所有系统版本。星级写入 JPG、RAW 与 XMP；像素蛋糕对外部星级的识别仍需实际导入确认。</p><p>后台随应用启动和退出，关闭窗口时会等待已提交的文件操作完成。旧网页版本的删除记录独立保留，需要在旧版本恢复。<a href="https://github.com/cxdyun/cxdy-top/releases/tag/photo-select-v1.2.3">查看发行说明</a> · <a href="https://github.com/cxdyun/cxdy-top/releases/download/photo-select-v1.2.3/PhotoSelect-1.2.3-arm64.dmg.sha256">下载 SHA-256 校验文件</a></p></details>
         </div>
       </section>
     </main>
-    <footer class="site-footer"><span>© 2026 CXDY</span><span class="footer-note">照片留在本机，喜欢留在照片里。</span><a href="/">全部工具<span class="icon arrow-right" aria-hidden="true"></span></a></footer>
+    <footer class="site-footer"><span>© 2026 爨乡的云</span><span class="footer-note">照片留在本机，喜欢留在照片里。</span><a href="/">全部工具<span class="icon arrow-right" aria-hidden="true"></span></a></footer>
   </div>
 </body>
 </html>

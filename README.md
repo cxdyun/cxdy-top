@@ -1,4 +1,4 @@
-# CXDY · 个人工具集
+# 爨乡的云 · 个人工具集
 
 个人网站 <https://cxdy.top>。首页聚合真实可用的功能模块，各模块直接放在仓库根目录的独立文件夹中。
 
@@ -8,9 +8,21 @@
 | --- | --- | --- |
 | 照片快选 | `/photo-select/` | 下载 macOS 桌面应用，Apple Silicon 测试版 |
 
-照片快选 DMG 和 SHA-256 校验文件通过 GitHub Releases 分发，模块页直接链接下载。v1.1.0 为临时签名、未公证的 Apple Silicon 测试版，最低系统目标 macOS 14。无需用户安装 Node.js 或启动终端，后台随应用启停。正式分发前仍需使用有权用于本产品的 Developer ID 签名并完成 Apple 公证。
+照片快选 DMG 和 SHA-256 校验文件通过 GitHub Releases 分发，模块页直接链接下载。v1.2.3 为临时签名、未公证的 Apple Silicon 测试版，最低系统目标 macOS 14。无需用户安装 Node.js 或启动终端，后台随应用启停。正式分发前仍需使用有权用于本产品的 Developer ID 签名并完成 Apple 公证。
 
-本站不访问本机 API、不上传照片；没有将照片原文件、照片库缓存或本机工具源码放入公开仓库。封面是手绘 SVG 界面示意图。应用数据和旧网页版本的恢复记录相互独立，旧版已删除照片需在旧版恢复。
+本站不访问本机 API、不上传照片；没有将照片原文件、照片库缓存或本机工具源码放入公开仓库。首页封面与产品页使用应用真实截图，演示库为公开风景素材，不含私人照片或个人目录。应用数据和旧网页版本的恢复记录相互独立，旧版已删除照片需在旧版恢复。
+
+## 照片快选真实界面
+
+[查看产品发布页](https://cxdy.top/photo-select/)
+
+![单图预览与标星](assets/images/photo-select-single.webp)
+
+| 左右对比 | 网格浏览 |
+| --- | --- |
+| ![左右对比](assets/images/photo-select-compare.webp) | ![网格浏览](assets/images/photo-select-grid.webp) |
+
+截图来自实际运行的应用。单图看细节、按 C 并排比较、网格大小可调。[素材来源与许可](photo-select/素材说明.md)。
 
 ## 本地预览
 
