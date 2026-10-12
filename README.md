@@ -8,7 +8,9 @@
 | --- | --- | --- |
 | 照片快选 | `/photo-select/` | 下载 macOS 桌面应用，Apple Silicon 测试版 |
 
-照片快选 DMG 和 SHA-256 校验文件通过 GitHub Releases 分发，模块页直接链接下载。v1.2.3 为临时签名、未公证的 Apple Silicon 测试版，最低系统目标 macOS 14。无需用户安装 Node.js 或启动终端，后台随应用启停。正式分发前仍需使用有权用于本产品的 Developer ID 签名并完成 Apple 公证。
+照片快选 DMG 和 SHA-256 校验文件通过 [GitHub Releases](https://github.com/cxdyun/cxdy-top/releases/tag/photo-select-v1.3.2) 分发，模块页直接链接下载。v1.3.2 为临时签名、未公证的 Apple Silicon 测试版，最低系统目标 macOS 14。无需用户安装 Node.js 或启动终端，后台随应用启停。正式分发前仍需使用有权用于本产品的 Developer ID 签名并完成 Apple 公证。
+
+1.3.2 新增 USB 安卓相册导入：按照片/视频、日期和相册选择，支持增量复制、传输进度和同步后自动预览。发行包内置 ADB；保存目录使用「相机」「微信」等名称，同名以数字区分，旧编号目录自动迁移。照片可继续进入选片工作台，视频保持原文件，无法解码时通过 Finder 打开。
 
 本站不访问本机 API、不上传照片；没有将照片原文件、照片库缓存或本机工具源码放入公开仓库。首页封面与产品页使用应用真实截图，演示库为公开风景素材，不含私人照片或个人目录。应用数据和旧网页版本的恢复记录相互独立，旧版已删除照片需在旧版恢复。
 
@@ -23,6 +25,12 @@
 | ![左右对比](assets/images/photo-select-compare.webp) | ![网格浏览](assets/images/photo-select-grid.webp) |
 
 截图来自实际运行的应用。单图看细节、按 C 并排比较、网格大小可调。[素材来源与许可](photo-select/素材说明.md)。
+
+| USB 同步 | 同步后相册预览 |
+| --- | --- |
+| ![按日期、类型和相册选择](assets/images/photo-select-usb.webp) | ![同步后自动进入相册](assets/images/photo-select-album.webp) |
+
+新增截图使用公开风景素材组成的演示相册，设备与拍摄日期为演示数据，未读取真实手机或私人相册。
 
 ## 本地预览
 
