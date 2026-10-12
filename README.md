@@ -18,17 +18,17 @@
 
 [查看产品发布页](https://cxdy.top/photo-select/)
 
-![单图预览与标星](assets/images/photo-select-single.webp)
+![单图预览与标星](assets/images/photo-select-single.webp?v=1.3.2-lake)
 
 | 左右对比 | 网格浏览 |
 | --- | --- |
-| ![左右对比](assets/images/photo-select-compare.webp) | ![网格浏览](assets/images/photo-select-grid.webp) |
+| ![左右对比](assets/images/photo-select-compare.webp?v=1.3.2-lake) | ![网格浏览](assets/images/photo-select-grid.webp?v=1.3.2-lake) |
 
 截图来自实际运行的应用。单图看细节、按 C 并排比较、网格大小可调。[素材来源与许可](photo-select/素材说明.md)。
 
 | USB 同步 | 同步后相册预览 |
 | --- | --- |
-| ![按日期、类型和相册选择](assets/images/photo-select-usb.webp) | ![同步后自动进入相册](assets/images/photo-select-album.webp) |
+| ![按日期、类型和相册选择](assets/images/photo-select-usb.webp?v=1.3.2-lake) | ![同步后自动进入相册](assets/images/photo-select-album.webp?v=1.3.2-lake) |
 
 新增截图使用公开风景素材组成的演示相册，设备与拍摄日期为演示数据，未读取真实手机或私人相册。
 
