@@ -4,9 +4,9 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#f7f6f2">
-  <meta name="description" content="下载照片快选 1.3.2 macOS 应用。USB 同步安卓照片和视频，按日期选择、增量备份并自动预览；支持照片标星、RAW 整理与 Finder 标签。">
+  <meta name="description" content="下载照片快选 1.4.1 macOS 应用。记住多个本地照片文件夹，快速切换工作区，支持目录重新链接、照片标星、RAW 整理与 Finder 标签。">
   <meta property="og:title" content="照片快选 · 专注于选片的 Mac 小工具">
-  <meta property="og:description" content="USB 同步安卓照片与视频，按时间范围选择，同步后自动预览。大图选片、左右对比与网格整理，原文件保存在本机。">
+  <meta property="og:description" content="记住照片文件夹的位置，切换后继续上次选片。支持失联目录重新链接、大图预览、左右对比与网格整理。">
   <meta property="og:image" content="https://cxdy.top/assets/images/photo-select-single.webp?v=1.3.2-lake">
   <meta property="og:url" content="https://cxdy.top/photo-select/">
   <meta property="og:type" content="website">
@@ -29,35 +29,21 @@
           <p class="eyebrow"><span class="accent-line" aria-hidden="true"></span>影像工具 · macOS</p>
           <h1 id="tool-title">照片快选<span class="tool-title-dot">.</span></h1>
           <p class="tool-lead">看清每一张，留下喜欢的。</p>
-          <p class="tool-description">USB 导入安卓照片和视频，按时间选择，同步后直接预览。<br>照片标星、RAW 成组整理，原文件始终保存在本机。</p>
+          <p class="tool-description">添加本地照片文件夹，记住位置，随时切换并继续选片。<br>照片标星、RAW 成组整理，原文件始终保存在本机。</p>
         </div>
         <div class="release-download">
-          <a class="primary-link" href="https://github.com/cxdyun/cxdy-top/releases/download/photo-select-v1.3.2/PhotoSelect-1.3.2-arm64.dmg">下载 macOS 版<span class="icon arrow-top-right" aria-hidden="true"></span><span class="sr-only">（DMG 安装包，Apple Silicon）</span></a>
-          <p class="runtime-note">v1.3.2 测试版 · 80.3 MB<br>Apple Silicon · macOS 14 及以上<br>尚未完成 Apple 公证 · <a href="#guide-title">安装说明</a></p>
+          <a class="primary-link" href="https://github.com/cxdyun/cxdy-top/releases/download/photo-select-v1.4.1/PhotoSelect-1.4.1-arm64.dmg">下载 macOS 版<span class="icon arrow-top-right" aria-hidden="true"></span><span class="sr-only">（DMG 安装包，Apple Silicon）</span></a>
+          <p class="runtime-note">v1.4.1 测试版 · 81.3 MB<br>Apple Silicon · macOS 14 及以上<br>尚未完成 Apple 公证 · <a href="#guide-title">安装说明</a></p>
         </div>
       </section>
       <figure class="product-shot hero-shot">
         <a class="screenshot-link" href="/assets/images/photo-select-single.webp?v=1.3.2-lake" target="_blank" rel="noopener" aria-label="查看单图选片原尺寸截图（在新标签页打开）"><img src="/assets/images/photo-select-single.webp?v=1.3.2-lake" width="1373" height="867" fetchpriority="high" decoding="async" alt="照片快选真实界面：中央大图预览山湖照片，底部胶片条定位当前照片，左侧筛选，工具栏支持五级标星与待删除标记。"></a>
-        <figcaption><span><b>01 / 单图选片</b> 大图看细节，胶片条看前后。</span><span class="shot-shortcut"><kbd>←</kbd><kbd>→</kbd> 切图 <kbd>0–5</kbd> 标星 <kbd>X</kbd> 待删除</span></figcaption>
+        <figcaption><span><b>01 / 单图选片</b> 大图看细节，胶片条看前后（截图为 1.3.2 版）。</span><span class="shot-shortcut"><kbd>←</kbd><kbd>→</kbd> 切图 <kbd>0–5</kbd> 标星 <kbd>X</kbd> 待删除</span></figcaption>
       </figure>
       <section class="tool-features" aria-label="主要功能">
-        <div><span class="feature-index">01</span><h2>手机相册，按时间备份</h2><p>USB 导入安卓照片和视频。选择某天之后或起止日期，再选相册；重复同步跳过已保存文件。</p></div>
+        <div><span class="feature-index">01</span><h2>多个文件夹，随时切换</h2><p>添加本地目录后记住位置，无需复制原片。每个文件夹保留选片位置与偏好，目录移动后可重新链接。</p></div>
         <div><span class="feature-index">02</span><h2>标记，跟着照片走</h2><p>照片与同名 RAW、XMP 成组整理。1–5 星写入原文件，可同步 Finder 颜色，删除后支持整组恢复。</p></div>
         <div><span class="feature-index">03</span><h2>手指留在键盘上</h2><p>方向键切图，数字键标星，X 标记待删除。空格查看 100% 细节，C 开启左右对比。</p></div>
-      </section>
-      <section class="screen-gallery" aria-labelledby="sync-title">
-        <div class="gallery-heading"><div><p class="eyebrow">1.3.2 · 安卓相册同步</p><h2 id="sync-title">从手机到电脑，只选需要的。</h2></div><p>按时间和相册选择，传输有进度，完成即预览。</p></div>
-        <div class="screen-pair">
-          <figure class="product-shot">
-            <a class="screenshot-link" href="/assets/images/photo-select-usb.webp?v=1.3.2-lake" target="_blank" rel="noopener" aria-label="查看安卓相册同步原尺寸截图（在新标签页打开）"><img src="/assets/images/photo-select-usb.webp?v=1.3.2-lake" width="1373" height="867" loading="lazy" decoding="async" alt="安卓相册同步界面：选择照片和视频、某天之后的拍摄时间与相机相册，原文件复制到电脑。"></a>
-            <figcaption><b>USB 同步 / 按时间选择</b><p>仅照片、仅视频或一起同步。默认最近 30 天，也可选择日期范围；保存到「相机」「微信」等易读文件夹，同名时用数字区分。</p></figcaption>
-          </figure>
-          <figure class="product-shot">
-            <a class="screenshot-link" href="/assets/images/photo-select-album.webp?v=1.3.2-lake" target="_blank" rel="noopener" aria-label="查看同步后相册预览原尺寸截图（在新标签页打开）"><img src="/assets/images/photo-select-album.webp?v=1.3.2-lake" width="1373" height="867" loading="lazy" decoding="async" alt="同步后的相册预览：大图浏览公开山湖照片，下方切换文件，并可进入照片选片工作台。"></a>
-            <figcaption><b>同步完成 / 自动预览</b><p>成功后自动进入本次所选范围的相册。照片大图查看，视频直接播放；无法解码的视频可在 Finder 中用本地播放器打开。</p></figcaption>
-          </figure>
-        </div>
-        <p class="screenshot-note">以上为实际运行界面的公开素材演示截图，设备和日期为演示数据，不含私人相册。同步保留手机原文件，不转码、不上传；再次同步保留电脑上的标星与编辑。<a href="/photo-select/素材说明.md">素材来源与许可</a></p>
       </section>
       <section class="screen-gallery" aria-labelledby="screens-title">
         <div class="gallery-heading"><div><p class="eyebrow">实际使用</p><h2 id="screens-title">并排比较，一屏浏览。</h2></div><p>从细节到整组，找到适合此刻的看图方式。</p></div>
@@ -71,20 +57,20 @@
             <figcaption><b>03 / 网格浏览</b><p>拖动滑杆调整缩略图大小，方向键就近选片。选中后按空格，直接进入单图预览。</p></figcaption>
           </figure>
         </div>
-        <p class="screenshot-note">以上均为应用实际截图，使用公开风景素材演示；对比图使用第一张湖景的两份副本。点击图片可查看原尺寸。<a href="/photo-select/素材说明.md">素材来源与许可<span class="sr-only">（Markdown 文档）</span></a></p>
+        <p class="screenshot-note">以上为 1.3.2 版本的实际选片截图，1.4.1 已调整侧栏与文件夹管理。截图使用公开风景素材，对比图为第一张湖景的两份副本。点击图片可查看原尺寸。<a href="/photo-select/素材说明.md">素材来源与许可<span class="sr-only">（Markdown 文档）</span></a></p>
       </section>
-      <section class="start-guide" aria-labelledby="usb-guide-title">
-        <div><p class="eyebrow">手机照片与视频</p><h2 id="usb-guide-title">一根线，存到电脑。</h2></div>
+      <section class="start-guide" aria-labelledby="folder-guide-title">
+        <div><p class="eyebrow">1.4.1 · 文件夹管理</p><h2 id="folder-guide-title">记住位置，继续选片。</h2></div>
         <div class="guide-content">
-          <ol><li><span>用支持数据传输的 USB 线连接安卓手机，开启「开发者选项 → USB 调试」，并在手机上允许这台电脑。</span></li><li><span>打开「安卓相册同步」，检测设备并扫描相册，选择文件类型、拍摄时间和相册。</span></li><li><span>确认电脑保存位置后开始同步。扫描显示旋转等待指示，传输显示数量与百分比，可随时停止；成功后自动预览。</span></li></ol>
-          <details><summary>同步范围与已有数据<span class="details-plus" aria-hidden="true"></span></summary><p>发行包内置 ADB，无需另装工具。读取手机上已下载的相册原文件，不包含云端未下载的照片或私密相册。日期包含起止当天，优先使用拍摄时间，缺失时使用相册收录或文件修改时间。</p><p>再次同步跳过记录中仍存在的电脑副本，保留电脑上的编辑；源文件变化时另存版本。中断后可重新同步，未完成的单个文件从头传输。视频不参与照片标星或清理。</p><p>旧编号相册目录会自动迁移为可读名称，并保留同步和恢复记录。应用隐藏滚动条，滚轮、触控板与键盘滚动仍可使用。</p></details>
+          <ol><li><span>在“导入”页添加本地照片文件夹。照片保留在原位置，下次打开应用仍可使用。</span></li><li><span>选择文件夹开始选片。点击侧栏“当前照片文件夹”可返回导入页切换，分别保留选片位置与偏好。</span></li><li><span>点击文件夹名称查看该目录的照片，右侧箭头单独展开子目录。目录失联时，可重新链接或移除记录。</span></li></ol>
+          <details><summary>重新链接与移除记录<span class="details-plus" aria-hidden="true"></span></summary><p>文件夹移动或磁盘未连接时，应用保留原记录。重新链接会核对文件身份；未确认的目录保持写入保护。移除记录只从列表隐藏文件夹，保留磁盘照片、已有星级和恢复记录。</p><p>此版本专注本地文件夹管理与选片，导入页暂不提供安卓或 iPhone 直连同步。</p></details>
         </div>
       </section>
       <section class="start-guide" aria-labelledby="guide-title">
         <div><p class="eyebrow">开始使用</p><h2 id="guide-title">装好，就能选片。</h2></div>
         <div class="guide-content">
-          <ol><li><span>下载并打开 DMG，将「照片快选」拖入 Applications。</span></li><li><span>从应用程序目录打开「照片快选」。</span></li><li><span>选择照片文件夹，开始浏览、标星与整理。</span></li></ol>
-          <details><summary>首次打开与版本说明<span class="details-plus" aria-hidden="true"></span></summary><p>当前为 Apple Silicon 测试版，尚未完成 Apple Developer ID 签名与公证。如果系统阻止首次启动，请确认文件来自本站，再参考 <a href="https://support.apple.com/zh-cn/102445" target="_blank" rel="noopener noreferrer">Apple 官方说明</a>，在系统提供的“隐私与安全性 → 仍要打开”入口自行确认。Intel Mac 暂不支持。</p><p>最低系统目标为 macOS 14，已在当前 Apple Silicon Mac 上完成验证，尚未覆盖所有系统版本。星级写入 JPG、RAW 与 XMP；像素蛋糕对外部星级的识别仍需实际导入确认。</p><p>后台随应用启动和退出，关闭窗口时会等待已提交的文件操作完成。旧网页版本的删除记录独立保留，需要在旧版本恢复。<a href="https://github.com/cxdyun/cxdy-top/releases/tag/photo-select-v1.3.2">查看发行说明</a> · <a href="https://github.com/cxdyun/cxdy-top/releases/download/photo-select-v1.3.2/PhotoSelect-1.3.2-arm64.dmg.sha256">下载 SHA-256 校验文件</a></p></details>
+          <ol><li><span>下载并打开 DMG，将「照片快选」拖入 Applications。</span></li><li><span>从应用程序目录打开「照片快选」。</span></li><li><span>在“导入”页添加照片文件夹，点击“开始选片”，即可浏览、标星与整理。</span></li></ol>
+          <details><summary>首次打开与版本说明<span class="details-plus" aria-hidden="true"></span></summary><p>当前为 Apple Silicon 测试版，尚未完成 Apple Developer ID 签名与公证。如果系统阻止首次启动，请确认文件来自本站，再参考 <a href="https://support.apple.com/zh-cn/102445" target="_blank" rel="noopener noreferrer">Apple 官方说明</a>，在系统提供的“隐私与安全性 → 仍要打开”入口自行确认。Intel Mac 暂不支持。</p><p>最低系统目标为 macOS 14，已在当前 Apple Silicon Mac 上完成验证，尚未覆盖所有系统版本。星级写入 JPG、RAW 与 XMP；像素蛋糕对外部星级的识别仍需实际导入确认。</p><p>后台随应用启动和退出，关闭窗口时会等待已提交的文件操作完成。旧网页版本的删除记录独立保留，需要在旧版本恢复。<a href="https://github.com/cxdyun/cxdy-top/releases/tag/photo-select-v1.4.1">查看发行说明</a> · <a href="https://github.com/cxdyun/cxdy-top/releases/download/photo-select-v1.4.1/PhotoSelect-1.4.1-arm64.dmg.sha256">下载 SHA-256 校验文件</a></p></details>
         </div>
       </section>
     </main>
