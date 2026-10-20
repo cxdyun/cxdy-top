@@ -219,3 +219,5 @@ kbd { font: 10px/1.4 ui-monospace, SFMono-Regular, monospace; border: 1px solid 
 @media (prefers-reduced-motion: reduce) {
   .project-card:hover .real-preview { transform: none; }
 }
+
+.project-card + .project-card { margin-top: 20px; }

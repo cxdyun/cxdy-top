@@ -7,6 +7,7 @@
 | 模块 | 地址 | 运行方式 |
 | --- | --- | --- |
 | 照片快选 | `/photo-select/` | 下载 macOS 桌面应用，Apple Silicon 测试版 |
+| Assets Atlas | `/assets-atlas/` | .car 资源预览、筛选与导出，Universal 测试版 |
 
 照片快选 DMG 和 SHA-256 校验文件通过 [GitHub Releases](https://github.com/cxdyun/cxdy-top/releases/tag/photo-select-v1.4.1) 分发，模块页直接链接下载。v1.4.1 为临时签名、未公证的 Apple Silicon 测试版，最低系统目标 macOS 14。无需用户安装 Node.js 或启动终端，后台随应用启停。正式分发前仍需使用有权用于本产品的 Developer ID 签名并完成 Apple 公证。
 
@@ -50,3 +51,7 @@ python3 -m http.server 4320 --bind 127.0.0.1
 ## 发布
 
 GitHub Pages 从 `master` 分支的根目录发布，域名由 `CNAME` 保持为 `cxdy.top`。推送到 `master` 后检查 Pages 构建状态与线上页面。
+
+## Assets Atlas
+
+[产品页](https://cxdy.top/assets-atlas/)使用 1.1.1 发布版的真实截图。安装包和 SHA-256 文件通过本站仓库的 `assets-atlas-v1.1.1` Release 公开分发；源码保留在独立私有仓库。演示 `.car` 来自自绘素材与 Apple actool 编译，不包含第三方应用资源或个人路径。[截图说明](assets-atlas/截图说明.md)。
