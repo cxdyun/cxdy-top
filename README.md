@@ -1,4 +1,4 @@
-# 爨乡的云 · 个人工具集
+# 爨乡的云 · 个人作品集
 
 个人网站 <https://cxdy.top>。首页聚合真实可用的功能模块，各模块直接放在仓库根目录的独立文件夹中。
 
@@ -39,14 +39,24 @@ python3 -m http.server 4320 --bind 127.0.0.1
 
 打开 `http://127.0.0.1:4320/`。静态站无需安装前端依赖或构建。
 
+全站复用 `assets/home.css` 与 `assets/home.js` 的字体、导航和按钮。首页提供支持横滑与键盘操作的截图画廊；产品详情页通过 `assets/site.css` 补充吸顶产品导航、功能展示和安装说明。关闭 JavaScript 后仍可浏览截图、展开菜单与安装说明。
+
+已安装 Playwright 和 Google Chrome 的开发环境可在启动本地预览后运行网站回归检查：
+
+```sh
+NODE_PATH="$(npm root -g)" node --test tests/site.test.cjs
+```
+
+检查覆盖桌面与移动端布局、导航、截图切换、减少动态效果、无 JavaScript 浏览，产品页吸顶导航与安装说明折叠项，以及首页下载地址与产品页的一致性。
+
 ## 新增模块
 
 1. 在仓库根目录新建模块文件夹，例如 `image-convert/`，放入入口 `index.html` 和该模块的资源。
-2. 在首页的 `collection` 区域新增作品卡片，链接使用 `/image-convert/`，同步修改作品数量。
+2. 在首页的 `collection` 区域新增产品展示区，链接使用 `/image-convert/`，同步更新导航。下载地址与版本说明应和对应产品页保持一致。
 3. 模块可以使用独立技术栈；需要构建时，将最终静态产物发布到对应模块目录。
 4. 本机工具应标明运行环境，并提供启动说明。有后端的模块另行部署服务。
 
-`assets/site.css` 为首页和照片快选入口页共用样式。图标来自 Radix Icons，许可位于 `assets/icons/LICENSE`。
+`assets/site.css` 为两个产品详情页共用样式。图标来自 Radix Icons，许可位于 `assets/icons/LICENSE`。
 
 ## 发布
 

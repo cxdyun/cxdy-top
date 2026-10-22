@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#f7f6f2">
+  <meta name="theme-color" content="#f5f5f7">
   <meta name="description" content="Assets Atlas 是原生 macOS .car 资源浏览工具，支持图片、SVG、PDF 与颜色预览，鼠标多选、筛选与批量导出，全部在本机处理。">
   <meta property="og:title" content="Assets Atlas · 资源，一览无余。">
   <meta property="og:description" content="打开 Apple 编译资源目录，预览、筛选并导出图片、矢量与颜色。">
@@ -13,26 +13,49 @@
   <meta property="og:site_name" content="爨乡的云">
   <title>Assets Atlas · 爨乡的云</title>
   <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/assets/home.css">
   <link rel="stylesheet" href="/assets/site.css">
+  <script src="/assets/home.js" defer></script>
 </head>
-<body>
+<body class="detail-page atlas-detail">
   <a class="skip-link" href="#main">跳到主要内容</a>
-  <div class="site-shell">
-    <header class="site-header">
-      <a class="brand" href="/" aria-label="爨乡的云首页"><span class="wordmark">cxdy<span>.</span></span><span class="brand-caption">个人工具集</span></a>
-      <nav aria-label="主导航"><a class="nav-link" href="/">返回工具集<span class="icon arrow-top-right" aria-hidden="true"></span></a></nav>
-    </header>
-    <main class="tool-page" id="main">
-      <div class="tool-breadcrumb"><a href="/">工具集</a><span aria-hidden="true">/</span><span>Assets Atlas</span></div>
-      <section class="tool-hero release-hero" aria-labelledby="tool-title">
+  <header class="global-header">
+    <nav class="global-nav" aria-label="主导航">
+      <a class="wordmark" href="/" aria-label="爨乡的云首页">cxdy<span>.</span></a>
+      <details class="nav-menu">
+        <summary><span class="desktop-label">探索工具集</span><span class="mobile-label">菜单</span><span class="menu-glyph" aria-hidden="true"></span></summary>
+        <div class="nav-panel">
+          <div class="nav-panel-inner">
+            <div class="nav-products"><p>为日常，做一点好用的改变。</p>
+              <a href="/photo-select/"><span class="nav-app-icon nav-photo-icon" aria-hidden="true"></span><span class="nav-product-copy"><strong>照片快选</strong><small>留下每一张喜欢。</small></span><span class="nav-arrow" aria-hidden="true">›</span></a>
+              <a href="/assets-atlas/"><img class="nav-app-icon" src="/assets/images/assets-atlas-icon.png" width="48" height="48" alt=""><span class="nav-product-copy"><strong>Assets Atlas</strong><small>资源，一览无余。</small></span><span class="nav-arrow" aria-hidden="true">›</span></a>
+            </div>
+            <div class="nav-more"><p>进一步了解</p><a href="/#collection">所有工具</a><a href="/#about">关于这个空间</a><a href="https://github.com/cxdyun" target="_blank" rel="noopener noreferrer">在 GitHub 关注<span class="sr-only">（在新标签页打开）</span><span aria-hidden="true"> ↗</span></a></div>
+          </div>
+        </div>
+      </details>
+      <a class="desktop-product" href="/photo-select/">照片快选</a>
+      <a class="desktop-product" href="/assets-atlas/">Assets Atlas</a>
+      <a class="desktop-product" href="/#about">关于</a>
+      <a class="github-link" href="https://github.com/cxdyun" target="_blank" rel="noopener noreferrer" aria-label="GitHub（在新标签页打开）"><span class="github-icon" aria-hidden="true"></span></a>
+    </nav>
+  </header>
+  <div class="menu-scrim" aria-hidden="true"></div>
+  <div class="local-nav">
+    <nav class="local-nav-inner" aria-label="Assets Atlas产品导航">
+      <a class="local-title" href="#overview">Assets Atlas</a>
+      <div class="local-links"><a class="local-overview" href="#features">功能亮点</a><a class="local-screens" href="#screens-title">实际界面</a><a href="#guide-title">安装说明</a><a class="button local-download" href="https://github.com/cxdyun/cxdy-top/releases/download/assets-atlas-v1.1.1/Assets-Atlas-1.1.1-universal.zip">下载<span class="sr-only">Assets Atlas测试版</span></a></div>
+    </nav>
+  </div>
+    <main class="tool-page" id="main" tabindex="-1">
+      <section class="tool-hero release-hero" id="overview" aria-labelledby="tool-title">
         <div class="tool-copy">
-          <p class="eyebrow"><span class="accent-line" aria-hidden="true"></span>开发工具 · macOS</p>
-          <h1 id="tool-title">Assets Atlas<span class="tool-title-dot">.</span></h1>
+          <h1 id="tool-title">Assets Atlas</h1>
           <p class="tool-lead">资源，一览无余。</p>
-          <p class="tool-description">把编译后的 .car 目录，变成看得见的资源库。<br>浏览图片、矢量与颜色，选中需要的内容，轻松导出。</p>
+          <p class="tool-description">打开 .car，图片、矢量、颜色尽收眼底。<br>选出需要的，一起带走。</p>
         </div>
         <div class="release-download">
-          <a class="primary-link" href="https://github.com/cxdyun/cxdy-top/releases/download/assets-atlas-v1.1.1/Assets-Atlas-1.1.1-universal.zip">下载 macOS 版<span class="icon arrow-top-right" aria-hidden="true"></span><span class="sr-only">（ZIP 安装包，Universal）</span></a>
+          <a class="button primary-link" href="https://github.com/cxdyun/cxdy-top/releases/download/assets-atlas-v1.1.1/Assets-Atlas-1.1.1-universal.zip">下载 macOS 版<span class="sr-only">（ZIP 安装包，Universal）</span></a>
           <p class="runtime-note">v1.1.1 测试版 · 2.0 MB<br>Universal · macOS 14 及以上<br>尚未完成 Apple 公证 · <a href="#guide-title">安装说明</a></p>
         </div>
       </section>
@@ -40,10 +63,13 @@
         <a class="screenshot-link" href="/assets/images/assets-atlas-library.webp" target="_blank" rel="noopener" aria-label="查看资源浏览原尺寸截图（在新标签页打开）"><img src="/assets/images/assets-atlas-library.webp" alt="Assets Atlas 真实界面：左侧按资源类型分类，中间显示紫色和青绿色演示图标，右侧预览选中的 AppIcon 并显示像素尺寸、倍率和导出按钮。" width="2640" height="1680" fetchpriority="high" decoding="async"></a>
         <figcaption><span><b>01 / 浏览资源</b> 缩略图与详情并排，选好再导出。</span><span class="shot-shortcut"><kbd>⌘O</kbd> 打开 <kbd>⌘E</kbd> 导出</span></figcaption>
       </figure>
-      <section class="tool-features" aria-label="主要功能">
-        <div><span class="feature-index">01</span><h2>看清资源的每个变体</h2><p>搜索名称，按类型、倍率和外观筛选。大图预览与像素尺寸放在一起，透明资源可切换深浅棋盘背景。</p></div>
-        <div><span class="feature-index">02</span><h2>选一个，也能选一组</h2><p>支持拖动框选、⌘ 叠加与 ⇧ 连选。单个、多项、当前筛选结果或全部资源，都有对应的导出入口。</p></div>
-        <div><span class="feature-index">03</span><h2>导出结果，有据可查</h2><p>保留倍率与变体，避免同名覆盖。批量附带元数据和报告，本次导出状态与路径可在侧边栏查看。</p></div>
+      <section class="tool-features" id="features" aria-labelledby="features-title">
+        <div class="feature-heading"><p class="eyebrow">功能亮点</p><h2 id="features-title">从看清，到带走。</h2></div>
+        <div class="feature-grid">
+        <div><span class="feature-index">01</span><h3>每个变体，都看清。</h3><p>搜索名称，按类型、倍率和外观筛选。大图预览与像素尺寸放在一起，透明资源可切换深浅棋盘背景。</p></div>
+        <div><span class="feature-index">02</span><h3>选好，一起带走。</h3><p>支持拖动框选、⌘ 叠加与 ⇧ 连选。单个、多项、当前筛选结果或全部资源，都有对应的导出入口。</p></div>
+        <div><span class="feature-index">03</span><h3>导出了什么，心中有数。</h3><p>保留倍率与变体，避免同名覆盖。批量附带元数据和报告，本次导出状态与路径可在侧边栏查看。</p></div>
+        </div>
       </section>
       <section class="screen-gallery" aria-labelledby="screens-title">
         <div class="gallery-heading"><div><p class="eyebrow">实际使用</p><h2 id="screens-title">从一张图，到一组资源。</h2></div><p>图片与颜色，都在同一个目录里。</p></div>
@@ -61,7 +87,11 @@
         </div>
       </section>
     </main>
-    <footer class="site-footer"><span>© 2026 爨乡的云</span><span class="footer-note">资源留在本机，导出清楚明白。</span><a href="/">全部工具<span class="icon arrow-right" aria-hidden="true"></span></a></footer>
-  </div>
+    <footer class="footer">
+      <div class="footer-inner">
+        <nav class="footer-breadcrumb" aria-label="面包屑导航"><a href="/">爨乡的云</a><span aria-hidden="true">›</span><a href="/#collection">工具集</a><span aria-hidden="true">›</span><span>Assets Atlas</span></nav>
+        <div class="footer-bottom"><span>Copyright © 2026 爨乡的云</span><a href="/">探索全部工具 <span aria-hidden="true">›</span></a><span class="footer-signoff">小而实用，认真打磨。</span></div>
+      </div>
+    </footer>
 </body>
 </html>

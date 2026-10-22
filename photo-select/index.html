@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#f7f6f2">
+  <meta name="theme-color" content="#f5f5f7">
   <meta name="description" content="下载照片快选 1.4.1 macOS 应用。记住多个本地照片文件夹，快速切换工作区，支持目录重新链接、照片标星、RAW 整理与 Finder 标签。">
   <meta property="og:title" content="照片快选 · 专注于选片的 Mac 小工具">
   <meta property="og:description" content="记住照片文件夹的位置，切换后继续上次选片。支持失联目录重新链接、大图预览、左右对比与网格整理。">
@@ -13,26 +13,49 @@
   <meta property="og:site_name" content="爨乡的云">
   <title>照片快选 · 爨乡的云</title>
   <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/assets/home.css">
   <link rel="stylesheet" href="/assets/site.css">
+  <script src="/assets/home.js" defer></script>
 </head>
-<body>
+<body class="detail-page photo-detail">
   <a class="skip-link" href="#main">跳到主要内容</a>
-  <div class="site-shell">
-    <header class="site-header">
-      <a class="brand" href="/" aria-label="爨乡的云首页"><span class="wordmark">cxdy<span>.</span></span><span class="brand-caption">个人工具集</span></a>
-      <nav aria-label="主导航"><a class="nav-link" href="/">返回工具集<span class="icon arrow-top-right" aria-hidden="true"></span></a></nav>
-    </header>
-    <main class="tool-page" id="main">
-      <div class="tool-breadcrumb"><a href="/">工具集</a><span aria-hidden="true">/</span><span>照片快选</span></div>
-      <section class="tool-hero release-hero" aria-labelledby="tool-title">
+  <header class="global-header">
+    <nav class="global-nav" aria-label="主导航">
+      <a class="wordmark" href="/" aria-label="爨乡的云首页">cxdy<span>.</span></a>
+      <details class="nav-menu">
+        <summary><span class="desktop-label">探索工具集</span><span class="mobile-label">菜单</span><span class="menu-glyph" aria-hidden="true"></span></summary>
+        <div class="nav-panel">
+          <div class="nav-panel-inner">
+            <div class="nav-products"><p>为日常，做一点好用的改变。</p>
+              <a href="/photo-select/"><span class="nav-app-icon nav-photo-icon" aria-hidden="true"></span><span class="nav-product-copy"><strong>照片快选</strong><small>留下每一张喜欢。</small></span><span class="nav-arrow" aria-hidden="true">›</span></a>
+              <a href="/assets-atlas/"><img class="nav-app-icon" src="/assets/images/assets-atlas-icon.png" width="48" height="48" alt=""><span class="nav-product-copy"><strong>Assets Atlas</strong><small>资源，一览无余。</small></span><span class="nav-arrow" aria-hidden="true">›</span></a>
+            </div>
+            <div class="nav-more"><p>进一步了解</p><a href="/#collection">所有工具</a><a href="/#about">关于这个空间</a><a href="https://github.com/cxdyun" target="_blank" rel="noopener noreferrer">在 GitHub 关注<span class="sr-only">（在新标签页打开）</span><span aria-hidden="true"> ↗</span></a></div>
+          </div>
+        </div>
+      </details>
+      <a class="desktop-product" href="/photo-select/">照片快选</a>
+      <a class="desktop-product" href="/assets-atlas/">Assets Atlas</a>
+      <a class="desktop-product" href="/#about">关于</a>
+      <a class="github-link" href="https://github.com/cxdyun" target="_blank" rel="noopener noreferrer" aria-label="GitHub（在新标签页打开）"><span class="github-icon" aria-hidden="true"></span></a>
+    </nav>
+  </header>
+  <div class="menu-scrim" aria-hidden="true"></div>
+  <div class="local-nav">
+    <nav class="local-nav-inner" aria-label="照片快选产品导航">
+      <a class="local-title" href="#overview">照片快选</a>
+      <div class="local-links"><a class="local-overview" href="#features">功能亮点</a><a class="local-screens" href="#screens-title">实际界面</a><a href="#guide-title">安装说明</a><a class="button local-download" href="https://github.com/cxdyun/cxdy-top/releases/download/photo-select-v1.4.1/PhotoSelect-1.4.1-arm64.dmg">下载<span class="sr-only">照片快选测试版</span></a></div>
+    </nav>
+  </div>
+    <main class="tool-page" id="main" tabindex="-1">
+      <section class="tool-hero release-hero" id="overview" aria-labelledby="tool-title">
         <div class="tool-copy">
-          <p class="eyebrow"><span class="accent-line" aria-hidden="true"></span>影像工具 · macOS</p>
-          <h1 id="tool-title">照片快选<span class="tool-title-dot">.</span></h1>
-          <p class="tool-lead">看清每一张，留下喜欢的。</p>
-          <p class="tool-description">添加本地照片文件夹，记住位置，随时切换并继续选片。<br>照片标星、RAW 成组整理，原文件始终保存在本机。</p>
+          <h1 id="tool-title">照片快选</h1>
+          <p class="tool-lead">留下每一张喜欢。</p>
+          <p class="tool-description">大图看细节，并排做比较。<br>从一整个文件夹，选出你的心头好。</p>
         </div>
         <div class="release-download">
-          <a class="primary-link" href="https://github.com/cxdyun/cxdy-top/releases/download/photo-select-v1.4.1/PhotoSelect-1.4.1-arm64.dmg">下载 macOS 版<span class="icon arrow-top-right" aria-hidden="true"></span><span class="sr-only">（DMG 安装包，Apple Silicon）</span></a>
+          <a class="button primary-link" href="https://github.com/cxdyun/cxdy-top/releases/download/photo-select-v1.4.1/PhotoSelect-1.4.1-arm64.dmg">下载 macOS 版<span class="sr-only">（DMG 安装包，Apple Silicon）</span></a>
           <p class="runtime-note">v1.4.1 测试版 · 81.3 MB<br>Apple Silicon · macOS 14 及以上<br>尚未完成 Apple 公证 · <a href="#guide-title">安装说明</a></p>
         </div>
       </section>
@@ -40,10 +63,13 @@
         <a class="screenshot-link" href="/assets/images/photo-select-single.webp?v=1.3.2-lake" target="_blank" rel="noopener" aria-label="查看单图选片原尺寸截图（在新标签页打开）"><img src="/assets/images/photo-select-single.webp?v=1.3.2-lake" width="1373" height="867" fetchpriority="high" decoding="async" alt="照片快选真实界面：中央大图预览山湖照片，底部胶片条定位当前照片，左侧筛选，工具栏支持五级标星与待删除标记。"></a>
         <figcaption><span><b>01 / 单图选片</b> 大图看细节，胶片条看前后（截图为 1.3.2 版）。</span><span class="shot-shortcut"><kbd>←</kbd><kbd>→</kbd> 切图 <kbd>0–5</kbd> 标星 <kbd>X</kbd> 待删除</span></figcaption>
       </figure>
-      <section class="tool-features" aria-label="主要功能">
-        <div><span class="feature-index">01</span><h2>多个文件夹，随时切换</h2><p>添加本地目录后记住位置，无需复制原片。每个文件夹保留选片位置与偏好，目录移动后可重新链接。</p></div>
-        <div><span class="feature-index">02</span><h2>标记，跟着照片走</h2><p>照片与同名 RAW、XMP 成组整理。1–5 星写入原文件，可同步 Finder 颜色，删除后支持整组恢复。</p></div>
-        <div><span class="feature-index">03</span><h2>手指留在键盘上</h2><p>方向键切图，数字键标星，X 标记待删除。空格查看 100% 细节，C 开启左右对比。</p></div>
+      <section class="tool-features" id="features" aria-labelledby="features-title">
+        <div class="feature-heading"><p class="eyebrow">功能亮点</p><h2 id="features-title">每一步，都顺手。</h2></div>
+        <div class="feature-grid">
+        <div><span class="feature-index">01</span><h3>随时切换，接着选。</h3><p>添加本地目录后记住位置，无需复制原片。每个文件夹保留选片位置与偏好，目录移动后可重新链接。</p></div>
+        <div><span class="feature-index">02</span><h3>喜欢，标记下来。</h3><p>照片与同名 RAW、XMP 成组整理。1–5 星写入原文件，可同步 Finder 颜色，删除后支持整组恢复。</p></div>
+        <div><span class="feature-index">03</span><h3>顺手，才够快。</h3><p>方向键切图，数字键标星，X 标记待删除。空格查看 100% 细节，C 开启左右对比。</p></div>
+        </div>
       </section>
       <section class="screen-gallery" aria-labelledby="screens-title">
         <div class="gallery-heading"><div><p class="eyebrow">实际使用</p><h2 id="screens-title">并排比较，一屏浏览。</h2></div><p>从细节到整组，找到适合此刻的看图方式。</p></div>
@@ -74,7 +100,11 @@
         </div>
       </section>
     </main>
-    <footer class="site-footer"><span>© 2026 爨乡的云</span><span class="footer-note">照片留在本机，喜欢留在照片里。</span><a href="/">全部工具<span class="icon arrow-right" aria-hidden="true"></span></a></footer>
-  </div>
+    <footer class="footer">
+      <div class="footer-inner">
+        <nav class="footer-breadcrumb" aria-label="面包屑导航"><a href="/">爨乡的云</a><span aria-hidden="true">›</span><a href="/#collection">工具集</a><span aria-hidden="true">›</span><span>照片快选</span></nav>
+        <div class="footer-bottom"><span>Copyright © 2026 爨乡的云</span><a href="/">探索全部工具 <span aria-hidden="true">›</span></a><span class="footer-signoff">小而实用，认真打磨。</span></div>
+      </div>
+    </footer>
 </body>
 </html>
