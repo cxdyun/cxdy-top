@@ -72,18 +72,19 @@ test('键盘切图、滚动同步、缩放后保留选中项及减少动态效�
   await page.goto(baseURL);
   const track = page.locator('#photo-gallery');
   const buttons = page.locator('.photo-product .gallery-controls button');
+  const last = (await buttons.count()) - 1;
   await track.focus();
   await page.keyboard.press('End');
-  await page.waitForFunction(() => document.querySelectorAll('.photo-product button')[2].getAttribute('aria-pressed') === 'true');
+  await page.waitForFunction(index => document.querySelectorAll('.photo-product .gallery-controls button')[index].getAttribute('aria-pressed') === 'true', last);
   await page.setViewportSize({ width: 390, height: 844 });
-  await page.waitForFunction(() => {
+  await page.waitForFunction(index => {
     const track = document.querySelector('#photo-gallery');
-    return Math.abs(track.scrollLeft - track.clientWidth * 2) < 2;
-  });
-  await buttons.nth(2).focus();
+    return Math.abs(track.scrollLeft - track.clientWidth * index) < 2;
+  }, last);
+  await buttons.nth(last).focus();
   await page.keyboard.press('ArrowLeft');
-  await page.waitForFunction(() => document.querySelectorAll('.photo-product button')[1].getAttribute('aria-pressed') === 'true');
-  assert.equal(await buttons.nth(1).evaluate(el => el === document.activeElement), true);
+  await page.waitForFunction(index => document.querySelectorAll('.photo-product .gallery-controls button')[index].getAttribute('aria-pressed') === 'true', last - 1);
+  assert.equal(await buttons.nth(last - 1).evaluate(el => el === document.activeElement), true);
   await track.evaluate(el => el.scrollLeft = 0);
   await page.waitForFunction(() => document.querySelector('.photo-product button').getAttribute('aria-pressed') === 'true');
   assert.equal(await page.evaluate(() => getComputedStyle(document.documentElement).scrollBehavior), 'auto');
@@ -100,7 +101,7 @@ test('下载地址与产品页一致，兼容性及截图版本说明保留', as
     assert.ok(productHTML.includes(`href="${href}"`));
     assert.match(await page.locator(`${section} .product-compatibility`).innerText(), /未公证测试版/);
   }
-  assert.match(await page.locator('.photo-product .screenshot-note').innerText(), /v1.3.2.*v1.4.1/);
+  assert.match(await page.locator('.photo-product .screenshot-note').innerText(), /v1.5.0.*最新真实界面/);
   assert.match(await page.locator('.footer-disclaimer').innerText(), /Intel 尚未实机验证/);
   await page.close();
 });
@@ -109,7 +110,7 @@ test('禁用 JavaScript 仍可浏览截图、展开菜单与进入产品页', as
   const page = await browser.newPage({ javaScriptEnabled: false, viewport: { width: 390, height: 844 } });
   await page.goto(baseURL);
   assert.equal(await page.locator('.gallery-controls').first().isVisible(), false);
-  assert.equal(await page.locator('#photo-gallery img').count(), 3);
+  assert.equal(await page.locator('#photo-gallery img').count(), 5);
   await page.locator('summary').click();
   assert.equal(await page.locator('.nav-products').isVisible(), true);
   await page.locator('.nav-products a').nth(1).click();
