@@ -6,32 +6,32 @@
 
 | 模块 | 地址 | 运行方式 |
 | --- | --- | --- |
-| 照片快选 | `/photo-select/` | 下载 macOS 桌面应用，Apple Silicon 测试版 |
+| 片刻 | `/cook-photo/` | 下载 macOS 桌面应用，Apple Silicon 测试版 |
 | Assets Atlas | `/assets-atlas/` | .car 资源预览、筛选与导出，Universal 测试版 |
 
-照片快选 DMG 和 SHA-256 校验文件通过 [GitHub Releases](https://github.com/cxdyun/cxdy-top/releases/tag/photo-select-v1.5.0) 分发，模块页直接链接下载。v1.5.0 为临时签名、未公证的 Apple Silicon 测试版，最低系统目标 macOS 14。无需用户安装 Node.js 或启动终端，后台随应用启停。正式分发前仍需使用有权用于本产品的 Developer ID 签名并完成 Apple 公证。
+片刻（cook-photo）DMG 和 SHA-256 校验文件通过 [GitHub Releases](https://github.com/cxdyun/cxdy-top/releases/tag/cook-photo-v1.6.0) 分发，模块页直接链接下载。v1.6.0 为临时签名、未公证的 Apple Silicon 测试版，最低系统目标 macOS 14。无需用户安装 Node.js 或启动终端，后台随应用启停。正式分发前仍需使用有权用于本产品的 Developer ID 签名并完成 Apple 公证。
 
-1.5.0（build 11）采用黑白灰暗色主题，按 H 一键专注选片；胶片条选中项保持居中，首尾自动停靠，长文件名与边框留白。保留本地文件夹管理：添加目录后记住位置，无需复制原片。切换目录时保留选片位置与偏好，失联目录可重新链接或移除记录。选片侧栏只显示当前工作区，文件夹名称负责选择目录，右侧箭头单独展开子目录。此版本的导入页暂不提供设备同步入口。
+1.6.0（build 12）采用黑白灰暗色主题，按 H 一键专注选片；胶片条选中项保持居中，首尾自动停靠，长文件名与边框留白。保留本地文件夹管理：添加目录后记住位置，无需复制原片。切换目录时保留选片位置与偏好，失联目录可重新链接或移除记录。选片侧栏只显示当前工作区，文件夹名称负责选择目录，右侧箭头单独展开子目录。此版本的导入页暂不提供设备同步入口。
 
 本站不访问本机 API、不上传照片；没有将照片原文件、照片库缓存或本机工具源码放入公开仓库。首页封面与产品页使用应用真实截图，演示库为公开风景素材，不含私人照片或个人目录。应用数据和旧网页版本的恢复记录相互独立，旧版已删除照片需在旧版恢复。
 
-## 照片快选真实界面
+## 片刻真实界面
 
-[查看产品发布页](https://cxdy.top/photo-select/)
+[查看产品发布页](https://cxdy.top/cook-photo/)
 
-![单图预览与标星](assets/images/photo-select-single.webp?v=1.5.0)
+![单图预览与标星](assets/images/cook-photo-single.webp?v=1.6.0)
 
 | 左右对比 | 网格浏览 |
 | --- | --- |
-| ![左右对比](assets/images/photo-select-compare.webp?v=1.5.0) | ![网格浏览](assets/images/photo-select-grid.webp?v=1.5.0) |
+| ![左右对比](assets/images/cook-photo-compare.webp?v=1.6.0) | ![网格浏览](assets/images/cook-photo-grid.webp?v=1.6.0) |
 
-![专注选片](assets/images/photo-select-focus.webp?v=1.5.0)
+![专注选片](assets/images/cook-photo-focus.webp?v=1.6.0)
 
-![文件夹管理](assets/images/photo-select-folders.webp?v=1.5.0)
+![文件夹管理](assets/images/cook-photo-folders.webp?v=1.6.0)
 
-截图来自实际运行的 1.5.0 应用。按 H 专注、按 C 比较，胶片条居中，网格大小可调。[素材来源与许可](photo-select/素材说明.md)。
+截图来自实际运行的 1.6.0 应用。按 H 专注、按 C 比较，胶片条居中，网格大小可调。[素材来源与许可](cook-photo/素材说明.md)。
 
-以上截图全部重新拍摄自 1.5.0 当前生产界面，涵盖黑白主题、专注、对比、网格与文件夹管理。
+以上截图全部重新拍摄自 1.6.0 当前生产界面，涵盖黑白主题、专注、对比、网格与文件夹管理。
 
 ## 本地预览
 
@@ -69,3 +69,5 @@ GitHub Pages 从 `master` 分支的根目录发布，域名由 `CNAME` 保持为
 ## Assets Atlas
 
 [产品页](https://cxdy.top/assets-atlas/)使用 1.1.1 发布版的真实截图。安装包和 SHA-256 文件通过本站仓库的 `assets-atlas-v1.1.1` Release 公开分发；源码保留在独立私有仓库。演示 `.car` 来自自绘素材与 Apple actool 编译，不包含第三方应用资源或个人路径。[截图说明](assets-atlas/截图说明.md)。
+
+照片工具已统一更名为片刻（cook-photo），当前产品页为 `/cook-photo/`，旧产品地址保留跳转。安装包名称与截图路径同步使用 cook-photo。

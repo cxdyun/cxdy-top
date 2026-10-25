@@ -61,9 +61,9 @@ test('手机菜单点击、点击外部关闭与产品页跳转', async () => {
   assert.equal(await page.locator('.nav-menu').evaluate(el => el.open), false);
   await page.locator('summary').tap();
   await page.locator('.nav-products a').first().tap();
-  await page.waitForURL(`${baseURL}/photo-select/`);
-  assert.equal(new URL(page.url()).pathname, '/photo-select/');
-  assert.equal(await page.locator('#tool-title').innerText(), '照片快选');
+  await page.waitForURL(`${baseURL}/cook-photo/`);
+  assert.equal(new URL(page.url()).pathname, '/cook-photo/');
+  assert.equal(await page.locator('#tool-title').innerText(), '片刻');
   await page.close();
 });
 
@@ -95,13 +95,13 @@ test('键盘切图、滚动同步、缩放后保留选中项及减少动态效�
 test('下载地址与产品页一致，兼容性及截图版本说明保留', async () => {
   const page = await browser.newPage();
   await page.goto(baseURL);
-  for (const [section, path] of [['.photo-product', 'photo-select'], ['.atlas-product', 'assets-atlas']]) {
+  for (const [section, path] of [['.photo-product', 'cook-photo'], ['.atlas-product', 'assets-atlas']]) {
     const href = await page.locator(`${section} .button-outline`).getAttribute('href');
     const productHTML = readFileSync(`${path}/index.html`, 'utf8');
     assert.ok(productHTML.includes(`href="${href}"`));
     assert.match(await page.locator(`${section} .product-compatibility`).innerText(), /未公证测试版/);
   }
-  assert.match(await page.locator('.photo-product .screenshot-note').innerText(), /v1.5.0.*最新真实界面/);
+  assert.match(await page.locator('.photo-product .screenshot-note').innerText(), /v1.6.0.*最新真实界面/);
   assert.match(await page.locator('.footer-disclaimer').innerText(), /Intel 尚未实机验证/);
   await page.close();
 });
@@ -118,7 +118,7 @@ test('禁用 JavaScript 仍可浏览截图、展开菜单与进入产品页', as
   await page.close();
 });
 
-for (const [route, name] of [['photo-select', '照片快选'], ['assets-atlas', 'Assets Atlas']]) {
+for (const [route, name] of [['cook-photo', '片刻'], ['assets-atlas', 'Assets Atlas']]) {
   for (const width of [1440, 390, 320]) {
     test(`${name} ${width}px：详情布局、吸顶导航、安装说明和下载入口`, async () => {
       const page = await browser.newPage({ viewport: { width, height: 900 }, reducedMotion: 'reduce' });
@@ -193,7 +193,7 @@ test('菜单悬停容错、平滑收起和快速移回不会闪闭', async () =>
   await page.close();
 });
 
-for (const route of ['', 'photo-select/', 'assets-atlas/']) {
+for (const route of ['', 'cook-photo/', 'assets-atlas/']) {
   test(`${route || '首页'}：滚动入场只播放一次，减少动态效果即时生效`, async () => {
     const page = await browser.newPage({ viewport: { width: 1440, height: 900 } });
     await page.goto(`${baseURL}/${route}`);
@@ -214,3 +214,15 @@ for (const route of ['', 'photo-select/', 'assets-atlas/']) {
     await page.close();
   });
 }
+
+
+test('旧产品地址保留跳转，其他产品导航指向片刻新路径', async () => {
+  const page = await browser.newPage();
+  await page.goto(baseURL + '/photo-select/');
+  await page.waitForURL(baseURL + '/cook-photo/');
+  assert.equal(await page.locator('#tool-title').innerText(), '片刻');
+  await page.goto(baseURL + '/assets-atlas/');
+  assert.equal(await page.locator('.desktop-product').first().getAttribute('href'), '/cook-photo/');
+  assert.equal(await page.locator('.desktop-product').first().innerText(), '片刻');
+  await page.close();
+});
