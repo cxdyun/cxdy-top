@@ -63,7 +63,7 @@ test('手机菜单点击、点击外部关闭与产品页跳转', async () => {
   await page.locator('.nav-products a').first().tap();
   await page.waitForURL(`${baseURL}/cook-photo/`);
   assert.equal(new URL(page.url()).pathname, '/cook-photo/');
-  assert.equal(await page.locator('#tool-title').innerText(), '片刻');
+  assert.equal(await page.locator('#tool-title').innerText(), '帧藏 · 片刻');
   await page.close();
 });
 
@@ -101,7 +101,7 @@ test('下载地址与产品页一致，兼容性及截图版本说明保留', as
     assert.ok(productHTML.includes(`href="${href}"`));
     assert.match(await page.locator(`${section} .product-compatibility`).innerText(), /未公证测试版/);
   }
-  assert.match(await page.locator('.photo-product .screenshot-note').innerText(), /v2.0.2.*自有/);
+  assert.match(await page.locator('.photo-product .screenshot-note').innerText(), /v2.0.3.*自有/);
   assert.match(await page.locator('.footer-disclaimer').innerText(), /Intel 尚未实机验证/);
   await page.close();
 });
@@ -118,7 +118,7 @@ test('禁用 JavaScript 仍可浏览截图、展开菜单与进入产品页', as
   await page.close();
 });
 
-for (const [route, name] of [['cook-photo', '片刻'], ['video-select', '片段'], ['assets-atlas', 'Assets Atlas']]) {
+for (const [route, name] of [['cook-photo', '帧藏 · 片刻'], ['video-select', '帧藏 · 片段'], ['assets-atlas', 'Assets Atlas']]) {
   for (const width of [1440, 390, 320]) {
     test(`${name} ${width}px：详情布局、吸顶导航、安装说明和下载入口`, async () => {
       const page = await browser.newPage({ viewport: { width, height: 900 }, reducedMotion: 'reduce' });
@@ -220,10 +220,10 @@ test('旧产品地址保留跳转，其他产品导航指向片刻新路径', as
   const page = await browser.newPage();
   await page.goto(baseURL + '/photo-select/');
   await page.waitForURL(baseURL + '/cook-photo/');
-  assert.equal(await page.locator('#tool-title').innerText(), '片刻');
+  assert.equal(await page.locator('#tool-title').innerText(), '帧藏 · 片刻');
   await page.goto(baseURL + '/assets-atlas/');
   assert.equal(await page.locator('.desktop-product').first().getAttribute('href'), '/cook-photo/');
-  assert.equal(await page.locator('.desktop-product').first().innerText(), '片刻');
+  assert.equal(await page.locator('.desktop-product').first().innerText(), '帧藏 · 片刻');
   await page.close();
 });
 
@@ -234,11 +234,29 @@ test('图片和视频独立展示并共用同一个帧藏安装包', async () =>
   assert.equal(await page.locator('.product').count(), 3);
   const photo = await page.locator('.photo-product .button-outline').getAttribute('href');
   assert.equal(await page.locator('.video-product .button-outline').getAttribute('href'), photo);
-  assert.match(photo, /cxdy-moment-v2\.0\.2\/cxdy-moment-2\.0\.2-arm64\.dmg$/);
+  assert.match(photo, /cxdy-moment-v2\.0\.3\/cxdy-moment-2\.0\.3-arm64\.dmg$/);
   for (const route of ['cook-photo', 'video-select']) {
     await page.goto(`${baseURL}/${route}/`);
     assert.equal(await page.locator('.primary-link').getAttribute('href'), photo);
     assert.match(await page.locator('.runtime-note').innerText(), /macOS 26.2/);
+  }
+  await page.close();
+});
+
+
+test('全站图片与视频产品名称和图标明确区分', async () => {
+  const page = await browser.newPage();
+  for (const route of ['', 'cook-photo/', 'video-select/', 'assets-atlas/']) {
+    await page.goto(baseURL + '/' + route);
+    await page.locator('.nav-menu summary').click();
+    const photo = page.locator('.nav-products a[href="/cook-photo/"]');
+    const video = page.locator('.nav-products a[href="/video-select/"]');
+    assert.equal(await photo.locator('strong').innerText(), '帧藏 · 片刻');
+    assert.equal(await video.locator('strong').innerText(), '帧藏 · 片段');
+    const imageMask = await photo.locator('.nav-app-icon').evaluate(el => getComputedStyle(el, '::before').maskImage);
+    const videoMask = await video.locator('.nav-app-icon').evaluate(el => getComputedStyle(el, '::before').maskImage);
+    assert.match(imageMask, /image\.svg/); assert.match(videoMask, /video\.svg/);
+    assert.notEqual(imageMask, videoMask);
   }
   await page.close();
 });

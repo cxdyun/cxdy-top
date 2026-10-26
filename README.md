@@ -6,33 +6,33 @@
 
 | 模块 | 地址 | 运行方式 |
 | --- | --- | --- |
-| 片刻 | `/cook-photo/` | 下载 macOS 桌面应用，Apple Silicon 测试版 |
-| 片段 | `/video-select/` | 与片刻共用帧藏 macOS 安装包 |
+| 帧藏 · 片刻 | `/cook-photo/` | 下载 macOS 桌面应用，Apple Silicon 测试版 |
+| 帧藏 · 片段 | `/video-select/` | 与片刻共用帧藏 macOS 安装包 |
 | Assets Atlas | `/assets-atlas/` | .car 资源预览、筛选与导出，Universal 测试版 |
 
-片刻（图片）与片段（视频）分别展示、拥有独立详情页，共用帧藏 MomentCove 的同一个 DMG。源码仓库 `cxdyun/cxdy-moment` 保持私有；公开站点 Release 仅镜像安装包与 SHA-256，不包含应用源码或私人素材。当前 2.0.2 测试版仅支持 Apple Silicon、macOS 26.2 及以上，临时签名、未完成 Apple 公证，模型独立安装。应用从空库启动，不迁入旧应用数据。
+片刻（图片）与片段（视频）分别展示、拥有独立详情页，共用帧藏 MomentCove 的同一个 DMG。源码仓库 `cxdyun/cxdy-moment` 保持私有；公开站点 Release 仅镜像安装包与 SHA-256，不包含应用源码或私人素材。当前 2.0.3 测试版仅支持 Apple Silicon、macOS 26.2 及以上，临时签名、未完成 Apple 公证，模型独立安装。应用从空库启动，不迁入旧应用数据。
 
 应用的文件管理、片刻和片段使用一致的顶部入口。图片选片、AI 建议与文案，视频精彩候选、人工双轨修正、备注和保留片段导出均在本机处理。AI 分析及视频导出不改动原素材；用户主动标星沿用文件事务保护。
 
-主页和详情页已替换为作者自有、明确授权公开的 20 张图片在 2.0.2 中的实际截图；视频演示由同一组图片制作。旧风景演示组已从当前站点移除，原始图片不公开打包。
+主页和详情页已替换为作者自有、明确授权公开的 20 张图片在 2.0.3 中的实际截图；视频演示由同一组图片制作。旧风景演示组已从当前站点移除，原始图片不公开打包。
 
 ## 片刻真实界面
 
 [查看产品发布页](https://cxdy.top/cook-photo/)
 
-![单图预览与标星](assets/images/cook-photo-single.webp?v=2.0.2)
+![单图预览与标星](assets/images/cook-photo-single.webp?v=2.0.3)
 
 | 左右对比 | 网格浏览 |
 | --- | --- |
-| ![左右对比](assets/images/cook-photo-compare.webp?v=2.0.2) | ![网格浏览](assets/images/cook-photo-grid.webp?v=2.0.2) |
+| ![左右对比](assets/images/cook-photo-compare.webp?v=2.0.3) | ![网格浏览](assets/images/cook-photo-grid.webp?v=2.0.3) |
 
-![专注选片](assets/images/cook-photo-focus.webp?v=2.0.2)
+![专注选片](assets/images/cook-photo-focus.webp?v=2.0.3)
 
-![文件夹管理](assets/images/cook-photo-folders.webp?v=2.0.2)
+![文件夹管理](assets/images/cook-photo-folders.webp?v=2.0.3)
 
-截图来自实际运行的 2.0.2 应用。按 H 专注、按 C 比较，胶片条居中，网格大小可调。[素材来源与许可](cook-photo/credits.md)。
+截图来自实际运行的 2.0.3 应用。按 H 专注、按 C 比较，胶片条居中，网格大小可调。[素材来源与许可](cook-photo/credits.md)。
 
-以上截图使用作者自有图片，从 2.0.2 工作台重新拍摄，涵盖黑白主题、专注、对比、网格与文件夹管理。
+以上截图使用作者自有图片，从 2.0.3 工作台重新拍摄，涵盖黑白主题、专注、对比、网格与文件夹管理。
 
 ## 本地预览
 
