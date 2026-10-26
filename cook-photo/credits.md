@@ -1,21 +1,9 @@
 # 产品截图素材说明
 
-截图于 2026-10-26 从片刻 1.6.0 最终生产构建中重新拍摄，尺寸 1440 × 900。五张分别展示黑白主题单图、H 专注模式、C 左右对比、网格浏览和文件夹管理。未修改应用 DOM 或拼接界面，不使用旧版浅色或设备同步截图。
+2026-10-27 经作者明确授权，个人主页、片刻和片段详情页改用作者自有的 20 张图片作为演示素材。旧风景素材与旧截图已从当前站点移除，不再采用 Unsplash 演示组。
 
-演示库名为“山间漫游”，来自独立公开风景素材；不含用户私人照片或个人目录。单图、专注和网格以第一张碧绿湖景为当前照片；对比展示演示库相邻照片。星级由演示文件已有元数据读取。
+单图、专注、对比、网格与文件管理截图来自实际运行的帧藏 MomentCove 2.0.2 工作台，尺寸 1440 × 900。未修改 DOM、未拼接界面。版权归作者；公开页面仅分发工作台截图，不提供素材原图打包下载。
 
-照片依照 [Unsplash License](https://unsplash.com/license) 用于产品演示，版权归摄影作者。仅分发应用界面截图，不分发照片原文件。RAW 写入能力另由临时副本测试验证。
+视频演示由其中的第一张水乡晨光图片生成 12 秒短片，在实际片段工作台展示分析、人工标记与备注。它用于界面演示，不是实拍视频，也不是模型识别准确率基准。
 
-| 演示文件 | 作者 | 原始作品 |
-| --- | --- | --- |
-| ALPINE_0001.JPG | Adam Vradenburg | [Unsplash](https://unsplash.com/photos/GA09PKfRIQY) |
-| ALPINE_0002.JPG（第一张的演示副本） | Adam Vradenburg | [Unsplash](https://unsplash.com/photos/GA09PKfRIQY) |
-| ALPINE_0003.JPG | Nathan Dumlao | [Unsplash](https://unsplash.com/photos/q3YZ4g7j9yc) |
-| ALPINE_0004.JPG | Daniel Roe | [Unsplash](https://unsplash.com/photos/lpjb_UMOyx8) |
-| ALPINE_0005.JPG | Alexey Murzin | [Unsplash](https://unsplash.com/photos/T8-Y9IwPFxE) |
-| ALPINE_0006.JPG | Nathan Dumlao | [Unsplash](https://unsplash.com/photos/3w_hlbOAibU) |
-| ALPINE_0007.JPG | fynn | [Unsplash](https://unsplash.com/photos/DEnuB_zok9M) |
-| ALPINE_0008.JPG | Nathan Dumlao | [Unsplash](https://unsplash.com/photos/4T6jS89NqgQ) |
-
-
-片段演示截图沿用同一套已授权风景素材，将山湖照片制作成短演示视频后在实际工作台截图；不代表实拍视频或模型准确率基准。
+演示过程只操作独立副本；原始 20 张 PNG 处理前后 SHA-256 保持一致，原始文件未修改。

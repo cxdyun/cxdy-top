@@ -101,7 +101,7 @@ test('下载地址与产品页一致，兼容性及截图版本说明保留', as
     assert.ok(productHTML.includes(`href="${href}"`));
     assert.match(await page.locator(`${section} .product-compatibility`).innerText(), /未公证测试版/);
   }
-  assert.match(await page.locator('.photo-product .screenshot-note').innerText(), /v1.6.0.*原有真实界面/);
+  assert.match(await page.locator('.photo-product .screenshot-note').innerText(), /v2.0.2.*自有/);
   assert.match(await page.locator('.footer-disclaimer').innerText(), /Intel 尚未实机验证/);
   await page.close();
 });
@@ -234,7 +234,7 @@ test('图片和视频独立展示并共用同一个帧藏安装包', async () =>
   assert.equal(await page.locator('.product').count(), 3);
   const photo = await page.locator('.photo-product .button-outline').getAttribute('href');
   assert.equal(await page.locator('.video-product .button-outline').getAttribute('href'), photo);
-  assert.match(photo, /cxdy-moment-v2\.0\.1\/cxdy-moment-2\.0\.1-arm64\.dmg$/);
+  assert.match(photo, /cxdy-moment-v2\.0\.2\/cxdy-moment-2\.0\.2-arm64\.dmg$/);
   for (const route of ['cook-photo', 'video-select']) {
     await page.goto(`${baseURL}/${route}/`);
     assert.equal(await page.locator('.primary-link').getAttribute('href'), photo);
