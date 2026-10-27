@@ -18,6 +18,8 @@ for (const width of [1440, 768, 390, 320]) {
     await page.goto(baseURL);
     assert.equal(await page.locator('h1').count(), 1);
     assert.equal(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), true);
+    const videoShot = await page.locator('.video-product img').boundingBox();
+    assert.ok(videoShot.x >= 0 && videoShot.x + videoShot.width <= width, '片段介绍截图应完整适配窗口');
     for (const gallery of await page.locator('[data-gallery]').all()) {
       for (const button of await gallery.locator('button').all()) {
         await button.click();
