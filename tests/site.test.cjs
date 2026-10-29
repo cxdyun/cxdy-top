@@ -236,7 +236,7 @@ test('图片和视频独立展示并共用同一个帧藏安装包', async () =>
   assert.equal(await page.locator('.product').count(), 3);
   const photo = await page.locator('.photo-product .button-outline').getAttribute('href');
   assert.equal(await page.locator('.video-product .button-outline').getAttribute('href'), photo);
-  assert.match(photo, /cxdy-moment-v2\.0\.5\/cxdy-moment-2\.0\.5-arm64\.dmg$/);
+  assert.match(photo, /cxdy-moment-v2\.0\.7\/cxdy-moment-2\.0\.7-arm64\.dmg$/);
   for (const route of ['cook-photo', 'video-select']) {
     await page.goto(`${baseURL}/${route}/`);
     assert.equal(await page.locator('.primary-link').getAttribute('href'), photo);
