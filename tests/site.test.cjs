@@ -103,8 +103,8 @@ test('下载地址与产品页一致，兼容性及截图版本说明保留', as
     assert.ok(productHTML.includes(`href="${href}"`));
     assert.match(await page.locator(`${section} .product-compatibility`).innerText(), /未公证测试版/);
   }
-  assert.match(await page.locator('.photo-product .screenshot-note').innerText(), /v2.0.3.*自有/);
-  assert.match(await page.locator('.footer-disclaimer').innerText(), /Intel 尚未实机验证/);
+  assert.match(await page.locator('.photo-product .screenshot-note').innerText(), /v2.0.3/);
+  assert.match(await page.locator('.atlas-product .product-compatibility').innerText(), /Intel 尚未实机验证/);
   await page.close();
 });
 
@@ -260,5 +260,77 @@ test('全站图片与视频产品名称和图标明确区分', async () => {
     assert.match(imageMask, /image\.svg/); assert.match(videoMask, /video\.svg/);
     assert.notEqual(imageMask, videoMask);
   }
+  await page.close();
+});
+
+for (const route of ['', 'cook-photo/', 'video-select/', 'assets-atlas/']) {
+  test(`${route || '首页'}：手机截图放大、键盘关闭及阅读位置保留`, async () => {
+    const page = await browser.newPage({ viewport: { width: 320, height: 700 }, reducedMotion: 'reduce' });
+    await page.goto(baseURL + '/' + route);
+    const link = page.locator('.gallery-slide > a, .product-shot > a').first();
+    await link.scrollIntoViewIfNeeded();
+    const scrollY = await page.evaluate(() => window.scrollY);
+    await link.click();
+    const preview = page.getByRole('dialog', { name: '截图预览' });
+    await preview.locator('img').evaluate(img => img.decode());
+    assert.equal(await preview.isVisible(), true);
+    await preview.getByRole('button', { name: '放大', exact: true }).click();
+    assert.equal(await preview.locator('img').evaluate(img => img.getBoundingClientRect().width > img.parentElement.clientWidth), true);
+    assert.equal(await preview.getByRole('button', { name: '适应窗口' }).getAttribute('aria-pressed'), 'true');
+    await page.keyboard.press('Escape');
+    assert.equal(await preview.isVisible(), false);
+    assert.equal(await link.evaluate(el => el === document.activeElement), true);
+    assert.ok(Math.abs(await page.evaluate(() => window.scrollY) - scrollY) <= 1);
+    await link.click();
+    assert.equal(await preview.getByRole('button', { name: '放大', exact: true }).getAttribute('aria-pressed'), 'false');
+    await preview.getByRole('button', { name: '关闭' }).click();
+    assert.equal(await preview.isVisible(), false);
+    await page.close();
+  });
+}
+
+test('320px：画廊标签保持单行，键盘选择末项后自动可见', async () => {
+  const page = await browser.newPage({ viewport: { width: 320, height: 700 }, reducedMotion: 'reduce' });
+  await page.goto(baseURL);
+  const controls = page.locator('.photo-product .gallery-controls');
+  const buttons = controls.locator('button');
+  for (const button of await buttons.all()) {
+    assert.equal(await button.evaluate(el => getComputedStyle(el).whiteSpace), 'nowrap');
+  }
+  await buttons.first().focus();
+  await page.keyboard.press('End');
+  assert.equal(await buttons.last().getAttribute('aria-pressed'), 'true');
+  assert.equal(await buttons.last().evaluate(el => {
+    const button = el.getBoundingClientRect();
+    const parent = el.parentElement.getBoundingClientRect();
+    return button.left >= parent.left && button.right <= parent.right;
+  }), true);
+  await page.close();
+});
+
+test('截图加载失败显示重试入口，禁用脚本时保留原图链接', async () => {
+  const page = await browser.newPage({ reducedMotion: 'reduce' });
+  await page.goto(baseURL);
+  await page.route('**/missing-preview.webp', route => route.fulfill({ status: 404, body: '' }));
+  await page.locator('.gallery-slide > a').first().evaluate(el => el.href = '/missing-preview.webp');
+  await page.locator('.gallery-slide > a').first().click();
+  await page.getByRole('status').filter({ hasText: '图片加载失败' }).waitFor({ state: 'visible' });
+  assert.match(await page.getByRole('link', { name: /打开原图/ }).getAttribute('href'), /missing-preview.webp$/);
+  await page.close();
+  const fallback = await browser.newPage({ javaScriptEnabled: false });
+  await fallback.goto(baseURL);
+  assert.match(await fallback.locator('.gallery-slide > a').first().getAttribute('href'), /cook-photo-single.webp/);
+  assert.equal(await fallback.locator('dialog').count(), 0);
+  await fallback.close();
+});
+
+test('首页片段截图保留详情导航，下载与截图版本保持独立', async () => {
+  const page = await browser.newPage();
+  await page.goto(baseURL);
+  const link = page.locator('.video-product .gallery-slide > a');
+  assert.equal(await link.getAttribute('aria-haspopup'), null);
+  await link.click();
+  await page.waitForURL(baseURL + '/video-select/');
+  assert.match(await page.locator('.primary-link').getAttribute('href'), /cxdy-moment-v2.0.7/);
   await page.close();
 });

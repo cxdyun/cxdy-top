@@ -100,6 +100,10 @@ document.querySelectorAll('[data-gallery]').forEach(gallery => {
 
   function setCurrent(index) {
     buttons.forEach((button, i) => button.setAttribute('aria-pressed', String(i === index)));
+    const button = buttons[index];
+    if (button.offsetLeft < controls.scrollLeft || button.offsetLeft + button.offsetWidth > controls.scrollLeft + controls.clientWidth) {
+      controls.scrollTo({ left: button.offsetLeft - (controls.clientWidth - button.offsetWidth) / 2, behavior: reducedMotion.matches ? 'instant' : 'smooth' });
+    }
     if (index !== current) status.textContent = `${buttons[index].textContent.trim()}，第 ${index + 1} 张，共 ${buttons.length} 张`;
     current = index;
   }
@@ -132,6 +136,45 @@ document.querySelectorAll('[data-gallery]').forEach(gallery => {
   new ResizeObserver(update).observe(track);
   controls.hidden = false;
 });
+
+if (typeof HTMLDialogElement !== 'undefined') {
+  const preview = document.createElement('dialog');
+  preview.className = 'screenshot-preview';
+  preview.setAttribute('aria-label', '截图预览');
+  preview.innerHTML = '<div class="preview-toolbar"><button type="button" aria-pressed="false">放大</button><a target="_blank" rel="noopener">打开原图<span class="sr-only">（在新标签页打开）</span></a><form method="dialog"><button autofocus>关闭</button></form></div><div class="preview-image"><img alt=""><p role="status" hidden>图片加载失败，请打开原图重试</p></div>';
+  document.body.append(preview);
+  const image = preview.querySelector('img');
+  const zoom = preview.querySelector('button');
+  const original = preview.querySelector('a');
+  const error = preview.querySelector('[role="status"]');
+  let trigger;
+  document.querySelectorAll('.gallery-slide > a[href*=images], .product-shot > a[href*=images]').forEach(link => {
+    link.setAttribute('aria-label', (link.getAttribute('aria-label') || link.querySelector('img').alt).replace('原尺寸截图（在新标签页打开）', '截图预览'));
+    link.setAttribute('aria-haspopup', 'dialog');
+    link.addEventListener('click', event => {
+      if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+      event.preventDefault();
+      trigger = link;
+      error.hidden = true;
+      image.hidden = false;
+      image.alt = link.querySelector('img').alt;
+      image.src = original.href = link.href;
+      preview.showModal();
+    });
+  });
+  zoom.addEventListener('click', () => {
+    const enlarged = preview.classList.toggle('is-zoomed');
+    zoom.setAttribute('aria-pressed', String(enlarged));
+    zoom.textContent = enlarged ? '适应窗口' : '放大';
+  });
+  image.addEventListener('error', () => { image.hidden = true; error.hidden = false; });
+  preview.addEventListener('close', () => {
+    preview.classList.remove('is-zoomed');
+    zoom.setAttribute('aria-pressed', 'false');
+    zoom.textContent = '放大';
+    trigger.focus({ preventScroll: true });
+  });
+}
 
 // 只为尚未进入视口的内容增强动效，首屏、锚点直达和无脚本浏览始终可读。
 if (!reducedMotion.matches && 'IntersectionObserver' in window) {

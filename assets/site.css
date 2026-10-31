@@ -2,7 +2,7 @@
 
 /* 产品页复用首页的字体、导航、按钮与辅助功能，仅补充详情布局。 */
 html { scroll-padding-top: 116px; }
-.local-nav { position: sticky; top: 44px; z-index: 18; background: #ffffffde; border-bottom: 1px solid #d2d2d7; -webkit-backdrop-filter: saturate(180%) blur(20px); backdrop-filter: saturate(180%) blur(20px); }
+.local-nav { position: sticky; top: 44px; z-index: 18; background: #fff; border-bottom: 1px solid #d2d2d7; }
 .local-nav-inner { max-width: 1024px; min-height: 52px; padding: 0 22px; margin: auto; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
 .local-title { font-size: 21px; font-weight: 600; letter-spacing: -.5px; white-space: nowrap; }
 .local-links { display: flex; align-items: center; gap: 24px; font-size: 12px; }
@@ -85,7 +85,7 @@ kbd { font: 12px/1.4 ui-monospace, SFMono-Regular, monospace; border: 1px solid 
   .tool-lead { font-size: 38px; line-height: 1.2; }
   .tool-description { font-size: 17px; margin-top: 20px; }
   .release-download { margin-top: 24px; }
-  .runtime-note { font-size: 11px; }
+  .runtime-note { font-size: 12px; }
   .hero-shot { padding: 0 20px 44px; }
   .screenshot-link { border-radius: 7px; }
   .hero-shot figcaption { display: block; font-size: 12px; padding-top: 18px; }

@@ -44,7 +44,7 @@ python3 -m http.server 4320 --bind 127.0.0.1
 
 打开 `http://127.0.0.1:4320/`。静态站无需安装前端依赖或构建。
 
-全站复用 `assets/home.css` 与 `assets/home.js` 的字体、导航和按钮。首页提供支持横滑与键盘操作的截图画廊；产品详情页通过 `assets/site.css` 补充吸顶产品导航、功能展示和安装说明。关闭 JavaScript 后仍可浏览截图、展开菜单与安装说明。
+全站复用 `assets/home.css` 与 `assets/home.js` 的字体、导航和按钮。首页提供支持横滑与键盘操作的截图画廊，手机端切换标签保持单行；图片链接支持原位放大预览，关闭后保留阅读位置。产品详情页通过 `assets/site.css` 补充吸顶产品导航、功能展示和安装说明。关闭 JavaScript 后仍可浏览截图、展开菜单与安装说明。
 
 已安装 Playwright 和 Google Chrome 的开发环境可在启动本地预览后运行网站回归检查：
 
